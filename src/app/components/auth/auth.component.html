@@ -1,0 +1,17 @@
+<div class="auth">
+  <img class="auth-img" alt="BIS-login-image" src="assets/auth-image.jpg">
+  <div class="auth-form-container">
+    <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+      <div class="auth-inputs-container">
+        <h2 class="auth-form-title">Welcome to BIS</h2>
+        <label class="auth-label">Логин:
+          <input formControlName="login" class="auth-input" type="text" placeholder="Введите ваш логин">
+        </label>
+        <label class="auth-label">Пароль:
+          <input formControlName="password" class="auth-input" type="password" placeholder="Введите ваш пароль">
+        </label>
+      </div>
+      <button class="auth-submit">Войти</button>
+    </form>
+  </div>
+</div>

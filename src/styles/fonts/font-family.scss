@@ -1,0 +1,23 @@
+:root {
+  --font-halvar-mittel-regular: Halvar Mittel, sans-serif;
+  --font-halvar-mittel-slanted: Halvar Mittel Slanted, sans-serif;
+}
+
+
+@font-face {
+  font-family: 'Halvar Mittel';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Halvar Mittel'),
+  url('../../assets/fonts/HalvarMittel-XTh.woff') format('woff'),
+  url('../../assets/fonts/HalvarMittel-XTh.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Halvar Mittel Slanted';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Halvar Mittel'),
+  url('../../assets/fonts/HalvarMittel-XThSlanted.woff') format('woff'),
+  url('../../assets/fonts/HalvarMittel-XThSlanted.woff2') format('woff2');
+}

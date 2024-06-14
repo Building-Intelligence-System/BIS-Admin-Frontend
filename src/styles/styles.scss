@@ -1,0 +1,13 @@
+@import "./reset";
+@import "./fonts/font-family";
+
+* {
+  font-family: var(--font-halvar-mittel-regular), sans-serif;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
