@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AuthService} from "./services/auth.service";
 
@@ -7,12 +7,12 @@ import {AuthService} from "./services/auth.service";
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'BIS-Admin-Frontend';
   constructor(private authService: AuthService) {
-    this.authService.isAuth$.next(false);
+    this.authService.isAuth$.next(true);
     this.authService.isAuth$.complete();
   }
 }

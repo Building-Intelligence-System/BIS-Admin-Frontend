@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
@@ -10,7 +10,8 @@ import {Router} from "@angular/router";
     ReactiveFormsModule
   ],
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss'
+  styleUrl: './auth.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent {
   protected loginForm = new FormGroup({

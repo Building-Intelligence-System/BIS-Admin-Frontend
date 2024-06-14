@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <img class="navbar-logo" src="assets/logo.jpg" alt="лого">
+  <h2 class="navbar-company">BIS</h2>
+  <div class="navbar-elements">
+    <div class="navbar-element">
+      <a class="navbar-link" routerLink="admin-panel" routerLinkActive="navbar-link-active">Панель руководителя</a>
+<!--      @if(navbarService.$projectsLinks) {-->
+<!--        <ul class="navbar-projects-links">-->
+<!--          @for (project of navbarService.$projectsLinks | async; track $index) {-->
+<!--            <a class="navbar-projects-link">{{project.name}}</a>-->
+<!--      }-->
+<!--        </ul>-->
+<!--      }-->
+    </div>
+    <div class="navbar-element">
+      <a class="navbar-link" routerLink="object-map" routerLinkActive="navbar-link-active">Транспорт</a>
+    </div>
+    <div class="navbar-element">
+      <a class="navbar-link" routerLink="charts" routerLinkActive="navbar-link-active">Отчеты</a>
+    </div>
+  </div>
+</nav>

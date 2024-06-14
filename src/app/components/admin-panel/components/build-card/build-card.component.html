@@ -1,0 +1,13 @@
+<div class="build-card">
+  <div class="build-container">
+    <img class="build-img" [src]="project?.imageReference">
+    <div class="build-info">
+      <span class="build-description">{{buildTypes[project?.type!] + ', ' + project?.address}}</span>
+      <span class="build-name">{{project?.name}}</span>
+    </div>
+  </div>
+  <div class="build-plan" [style.background-color]="projectTasksInfo?.currentPlan! > projectTasksInfo?.expectedPlan! ? '#2CA266' : '#E7683F'">
+    <span class="build-expectation-plan">{{'план: ' + projectTasksInfo?.expectedPlan + '%'}}</span>
+    <span class="build-real-plan">{{projectTasksInfo?.currentPlan + '%'}}</span>
+  </div>
+</div>

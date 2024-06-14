@@ -8,3 +8,8 @@
   font-size: $fontSize;
   line-height: $lineHeight;
 }
+
+@mixin sizes($width, $height) {
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,71 @@
+@import "../../../../../styles/mixins";
+
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+
+.project {
+  width: 100%;
+  padding: 20px;
+}
+
+.project-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+}
+
+.project-img {
+  height: 100%;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 20px;
+
+  .project-address {
+    @include fontSize(22px, 26px);
+  }
+
+  .project-name {
+    @include fontSize(45px, 52px);
+    font-weight: bold;
+  }
+
+  .project-current-plan {
+    @include fontSize(120px, 140px);
+    font-weight: bold;
+  }
+
+  .project-expected-plan {
+    @include fontSize(42px, 50px);
+  }
+}
+
+.project-date {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: auto;
+  padding: 20px;
+  color: white;
+
+  .project-date-title {
+    @include fontSize(52px, 60px);
+    padding-bottom: 20px;
+  }
+
+  .project-date-end-value {
+    padding-bottom: 15px;
+  }
+
+  .project-date-end,
+  .project-date-end-value,
+  .project-date-expected,
+  .project-date-expected-value {
+    @include fontSize(20px, 22px);
+  }
+}

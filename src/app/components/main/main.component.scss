@@ -1,14 +1,8 @@
-.main-page {
-  width: 100dvw;
-  height: 100dvh;
-  overflow: hidden;
-  box-sizing: border-box;
-}
+@import "../../../styles/mixins";
 
-.navbar {
-  width: 280px;
-  height: 100%;
+.main-page {
   display: flex;
-  flex-direction: column;
-  background-color: #121E32;
+  @include sizes(100%, 100%);
+  overflow: hidden;
+  //box-sizing: border-box;
 }

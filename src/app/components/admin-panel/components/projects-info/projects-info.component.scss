@@ -1,0 +1,41 @@
+@import "../../../../../styles/mixins";
+
+.admin-projects-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 140px;
+  gap: 20px;
+
+  .admin-project-info {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #121E32;
+
+    .projects-description {
+      @include sizes(30%, 100%);
+      @include fontSize(24px, 16px);
+      color: white;
+      padding: 20px;
+    }
+
+    .projects-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      @include sizes(max-content, 100%);
+      color: white;
+
+      .projects-number {
+        @include fontSize(90px, 90px);
+        font-weight: bold;
+      }
+
+      .projects-plan-number {
+        @extend .projects-number;
+        color: #E7683F;
+      }
+    }
+  }
+}
