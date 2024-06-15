@@ -1,0 +1,9 @@
+<div class="cctv">
+  <video class="cctv-player" [src]="cctvObject?.videoUrls![selectCCTVUrl]" autoplay></video>
+  <ul class="cctvs">
+    <div class="cctv-close" (click)="handleCCTVObjectClose($event)">x</div>
+    @for (cctvObject of cctvObject?.videoUrls; track $index) {
+      <li class="cctv-camera" (click)="handleSelectCCTV($index)">{{'Камера: ' + ($index + 1)}}</li>
+    }
+  </ul>
+</div>

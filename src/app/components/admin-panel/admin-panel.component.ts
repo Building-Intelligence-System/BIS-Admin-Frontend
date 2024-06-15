@@ -6,13 +6,15 @@ import {Project} from "../../core/entities/project/project.model";
 import {ProjectsInfoComponent} from "./components/projects-info/projects-info.component";
 import {ProjectTasksInfo} from "../../core/entities/project-tasks-info/projects-tasks-info.model";
 import {Router} from "@angular/router";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
   imports: [
     BuildCardComponent,
-    ProjectsInfoComponent
+    ProjectsInfoComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './admin-panel.component.html',
   styleUrl: './admin-panel.component.scss',
@@ -21,6 +23,15 @@ import {Router} from "@angular/router";
 export class AdminPanelComponent implements OnInit {
   protected projects: Project[] = [];
   protected projectsTaskInfo: ProjectTasksInfo[] = [];
+
+  protected showCreateNewProjectModal: boolean = false;
+  protected createNewProjectFormGroup: FormGroup = new FormGroup({
+    imageUrl: new FormControl(''),
+    startDate: new FormControl(''),
+    endDate: new FormControl(''),
+    name: new FormControl(''),
+    address: new FormControl(''),
+  });
 
   constructor(private httpClient: HttpClient,
               private router: Router,
@@ -31,7 +42,12 @@ export class AdminPanelComponent implements OnInit {
     const projectsPromise = firstValueFrom(this.httpClient.get<Project[]>('assets/mocks/projects-mock.json'));
     const projectsTaskInfo = firstValueFrom(this.httpClient.get<ProjectTasksInfo[]>('assets/mocks/projects-tasks-info-mock.json'));
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
+
     this.changeDetection.markForCheck();
+  }
+
+  protected onSubmit() {
+    console.log(this.createNewProjectFormGroup.value);
   }
 
   protected handleFindProjectTaskInfo(project: Project) {

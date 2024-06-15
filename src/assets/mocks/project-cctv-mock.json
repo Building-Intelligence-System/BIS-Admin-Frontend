@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "projectId": "1",
+    "lat":  "45.047887",
+    "lon": "38.944256",
+    "videoUrls":  ["assets/videos/сармат-1.mp4", "assets/videos/сармат-2.mp4"]
+  },
+  {
+    "id": "2",
+    "projectId": "2",
+    "lat":  "45.034711",
+    "lon": "38.989963",
+    "videoUrls":  ["assets/videos/стройка-1.mp4", "assets/videos/стройка-2.mp4", "assets/videos/стройка-3.mp4", "assets/videos/стройка-4.mp4"]
+  }
+]

@@ -1,4 +1,5 @@
 @import "../../../styles/mixins";
+@import "../../../styles/variables";
 
 .navbar {
   @include sizes(280px, 100%);
@@ -9,6 +10,10 @@
   background-color: #121E32;
   color: white;
 
+  @media (max-width: $tablet) {
+    @include sizes(100%, max-content);
+  }
+
   .navbar-logo {
     @include sizes(100px, 100px);
     border-radius: 50%;
@@ -16,6 +21,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-clip: border-box;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
 
   .navbar-company {
@@ -26,6 +35,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
+
+    @media (max-width: $tablet) {
+      flex-direction: row;
+    }
 
     .navbar-element {
       width: 100%;

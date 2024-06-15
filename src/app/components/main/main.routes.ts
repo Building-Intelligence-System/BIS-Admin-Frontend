@@ -5,6 +5,7 @@ import {authGuard} from "../../guards/auth.guard";
 import {AdminPanelComponent} from "../admin-panel/admin-panel.component";
 import {ProjectInfoComponent} from "../admin-panel/components/project-info/project-info.component";
 import {TaskModalInfoComponent} from "../admin-panel/components/project-info/task-modal-info/task-modal-info.component";
+import {TrackingObjectComponent} from "../tracking-object/tracking-object.component";
 
 export const mainRoutes: Routes = [
   {
@@ -28,6 +29,12 @@ export const mainRoutes: Routes = [
   {
     path: 'charts',
     component: ChartsComponent,
+    canActivate: [authGuard],
+    data: {redirectUrl: 'login'}
+  },
+  {
+    path: 'tracking-object',
+    component: TrackingObjectComponent,
     canActivate: [authGuard],
     data: {redirectUrl: 'login'}
   },

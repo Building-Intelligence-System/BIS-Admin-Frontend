@@ -1,7 +1,17 @@
 <app-map-control (geolocationButtonClick)="showAlert()"></app-map-control>
-@if(!selectedTrackingObject) {
-  <app-tracking-object-list [trackingObjects]="trackingObjects" (trackingObjectClick)="handleTrackingObjectClick($event)"></app-tracking-object-list>
+@if (!selectedTrackingObject) {
+  <app-tracking-object-list [trackingObjects]="trackingObjects"
+                            (trackingObjectClick)="handleTrackingObjectClick($event)"></app-tracking-object-list>
 } @else {
-  <app-tracking-object-info [trackingObject]="selectedTrackingObject" (backToTrackingListEvent)="handleBackToTrackingObjectList()"></app-tracking-object-info>
+  <app-tracking-object-info [trackingObject]="selectedTrackingObject"
+                            (backToTrackingListEvent)="handleBackToTrackingObjectList()"
+                            (trackingObjectVideo)="handleTrackingObjectVideo()"></app-tracking-object-info>
 }
+@if (showTrackingObjectVideo) {
+  <app-tracking-object-video (trackingObjectVideoClose)="handleTrackingObjectVideoClose()"></app-tracking-object-video>
+}
+@if (selectedCCTVObject) {
+  <app-cctv [cctvObject]="selectedCCTVObject" (cctvObjectClose)="handleCCTVObjectClose()"></app-cctv>
+}
+
 <div #map></div>
