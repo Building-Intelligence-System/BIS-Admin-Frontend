@@ -9,7 +9,7 @@ RUN node --version &&\
 
 WORKDIR /build
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --force
 
 COPY . ./
 RUN npm run build:prod
