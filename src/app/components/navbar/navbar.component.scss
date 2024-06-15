@@ -50,7 +50,6 @@
 
       a {
         text-decoration: none;
-        color: white;
       }
     }
   }
@@ -60,14 +59,17 @@
     width: 100%;
     padding: 10px;
     transition: background-color .2s ease-in-out;
+    color: white;
 
     &:hover {
-      background-color: #4EAAC2;
+      background-color: white;
+      color: #121E32;
     }
   }
 
   .navbar-link-active {
-    background-color: #4EAAC2;
+    background-color: white;
+    color: #121E32;
   }
 
   .navbar-projects-links {
