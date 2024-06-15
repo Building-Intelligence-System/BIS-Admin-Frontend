@@ -1,0 +1,35 @@
+:host {
+  display: contents;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0 20px 0;
+  }
+}
+
+table {
+  border: 1px solid lightgray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 100%;
+}
+
+  .mat-column-position,
+  .mat-column-id,
+  .mat-column-name,
+  .mat-column-role,
+  .mat-column-lateCount{
+    width: 32px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding-right: 24px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
