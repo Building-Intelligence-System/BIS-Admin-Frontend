@@ -6,7 +6,6 @@ import {Project} from "../../core/entities/project/project.model";
 import {ProjectsInfoComponent} from "./components/projects-info/projects-info.component";
 import {ProjectTasksInfo} from "../../core/entities/project-tasks-info/projects-tasks-info.model";
 import {Router} from "@angular/router";
-import {NavbarService} from "../../services/navbar.service";
 
 @Component({
   selector: 'app-admin-panel',
@@ -25,15 +24,13 @@ export class AdminPanelComponent implements OnInit {
 
   constructor(private httpClient: HttpClient,
               private router: Router,
-              private changeDetection: ChangeDetectorRef,
-              private navbarService: NavbarService) {
+              private changeDetection: ChangeDetectorRef) {
   }
 
   async ngOnInit(): Promise<void> {
     const projectsPromise = firstValueFrom(this.httpClient.get<Project[]>('assets/mocks/projects-mock.json'));
     const projectsTaskInfo = firstValueFrom(this.httpClient.get<ProjectTasksInfo[]>('assets/mocks/projects-tasks-info-mock.json'));
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
-    this.navbarService.emitProjectsLinks(this.projects);
     this.changeDetection.markForCheck();
   }
 

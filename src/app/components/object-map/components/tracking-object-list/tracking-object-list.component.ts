@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TrackingObject, TrackingObjectType} from "../../../../core/entities/tracking-object/tracking-object.model";
 
 @Component({
@@ -8,9 +8,18 @@ import {TrackingObject, TrackingObjectType} from "../../../../core/entities/trac
   templateUrl: './tracking-object-list.component.html',
   styleUrl: './tracking-object-list.component.scss'
 })
-export class TrackingObjectListComponent {
-@Input({required: true}) public trackingObjects: TrackingObject[] = [];
-protected readonly TrackingObjectUrl = TrackingObjectUrl;
+export class TrackingObjectListComponent implements OnInit{
+  protected readonly TrackingObjectUrl = TrackingObjectUrl;
+
+  @Input({required: true}) public trackingObjects: TrackingObject[] = [];
+  @Output() public trackingObjectClick: EventEmitter<TrackingObject> = new EventEmitter<TrackingObject>();
+
+  protected handleTrackingObjectClick(trackingObject: TrackingObject) {
+    this.trackingObjectClick.emit(trackingObject);
+  }
+
+  ngOnInit(): void {
+  }
 }
 
 export const TrackingObjectUrl: Record<TrackingObjectType, string> = {

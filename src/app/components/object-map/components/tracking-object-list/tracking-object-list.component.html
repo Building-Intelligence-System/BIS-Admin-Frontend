@@ -1,7 +1,7 @@
 <div class="tracking-objects-list">
   <ul>
     @for (trackingObject of trackingObjects; track $index) {
-      <li>
+      <li (click)="handleTrackingObjectClick(trackingObject)">
         <img class="list-tracking-object-img" [src]="TrackingObjectUrl[trackingObject.type ?? 'CAR']">
         {{trackingObject.model}}
         {{trackingObject.status}}
