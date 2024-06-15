@@ -7,7 +7,8 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:network": "ng serve --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
