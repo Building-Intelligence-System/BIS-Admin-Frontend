@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Params, Router, RouterOutlet} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {AsyncPipe} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {Project} from "../../../../core/entities/project/project.model";
@@ -12,17 +12,19 @@ import {Task} from "../../../../core/entities/task/task.model";
 import {
   ApexAxisChartSeries,
   ApexChart,
+  ApexFill,
   ApexLegend,
   ApexPlotOptions,
   ApexXAxis,
   ChartComponent,
   NgApexchartsModule
 } from "ng-apexcharts";
-import {TaskModalInfoComponent} from "./task-modal-info/task-modal-info.component";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
+  fill: ApexFill;
   legend: ApexLegend;
   xaxis: ApexXAxis;
   plotOptions: ApexPlotOptions;
@@ -34,34 +36,37 @@ export type ChartOptions = {
   imports: [
     AsyncPipe,
     NgApexchartsModule,
-    TaskModalInfoComponent,
-    RouterOutlet
+    ReactiveFormsModule
   ],
   templateUrl: './project-info.component.html',
   styleUrl: './project-info.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectInfoComponent implements OnInit {
-  protected readonly buildTypes = buildTypes;
-  protected readonly DateUtils = DateUtils;
-
   protected project: Project | undefined;
   protected projectTaskInfo: ProjectTasksInfo | undefined;
   protected projectTasks: Task[] | undefined;
-
-  protected showTaskModalInfo: boolean = false;
-  protected selectedProjectTask: Task | undefined;
+  protected showAddTaskModal: boolean = true;
+  protected addTaskFormGroup: FormGroup = new FormGroup({});
 
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions | undefined;
 
   constructor(private httpClient: HttpClient,
               private changeDetection: ChangeDetectorRef,
-              protected activatedRoute: ActivatedRoute,
-              private router: Router) {
+              protected activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+  this.addTaskFormGroup = new FormGroup({
+    name: new FormControl(),
+    startDate: new FormControl(),
+    expectedEndDate: new FormControl(),
+    head: new FormControl(),
+    person: new FormControl(),
+    comment: new FormControl()
+  });
+
     this.activatedRoute.params.subscribe(async (next: Params) => {
       const projectPromise = firstValueFrom(this.httpClient.get<Project>(`assets/mocks/project-${next['projectId']}-mock.json`));
       const projectTaskInfoPromise = firstValueFrom(this.httpClient.get<ProjectTasksInfo>(`assets/mocks/project-${next['projectId']}-task-info-mock.json`));
@@ -71,6 +76,11 @@ export class ProjectInfoComponent implements OnInit {
       this.createChartOptions(this.projectTasks);
       this.changeDetection.markForCheck();
     });
+  }
+
+  protected onSubmit() {
+    console.log(this.addTaskFormGroup.value);
+    this.addTaskFormGroup.reset();
   }
 
   protected createChartOptions(tasks: Task[]) {
@@ -83,17 +93,13 @@ export class ProjectInfoComponent implements OnInit {
             y: [
               new Date(task.startDate ?? 0).getTime(),
               new Date(task.actualEndDate ?? 0).getTime()
-            ],
-            fillColor: this.handleTaskColor(task),
-            meta: task
+            ]
           }
         ]
       })),
       chart: {
         height: 350,
-        type: "rangeBar",
-        events: { dataPointSelection: (e, chart, opts) => {
-          this.handleTaskClick(opts['seriesIndex']); } },
+        type: "rangeBar"
       },
       plotOptions: {
         bar: {
@@ -105,6 +111,19 @@ export class ProjectInfoComponent implements OnInit {
       xaxis: {
         type: "datetime"
       },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "light",
+          type: "vertical",
+          shadeIntensity: 0.25,
+          gradientToColors: ['red'],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [50, 0, 100, 100]
+        }
+      },
       legend: {
         position: "top",
         horizontalAlign: "left",
@@ -113,16 +132,7 @@ export class ProjectInfoComponent implements OnInit {
     };
   }
 
-  protected handleTaskClick(taskIndex: number) {
-    if (!this.projectTasks) return;
-    this.showTaskModalInfo = true;
-    this.selectedProjectTask = this.projectTasks[taskIndex];
-    this.changeDetection.markForCheck()
-    console.log('handleTaskClick', this.showTaskModalInfo, this.selectedProjectTask);
-  }
-
-  private handleTaskColor(task: Task) {
-    return (task.expectedEndDate ?? 0) > (task.actualEndDate ?? 0) ? '#40af24' : '#bd1f1f';
-  }
+  protected readonly buildTypes = buildTypes;
+  protected readonly DateUtils = DateUtils;
 }
 

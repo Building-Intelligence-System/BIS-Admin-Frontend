@@ -2,6 +2,12 @@
   <div class="project-container"
        [style.background-color]="(projectTaskInfo?.currentPlan ?? 0) > (projectTaskInfo?.expectedPlan ?? 0) ? '#2CA266' : '#E7683F'">
     <img class="project-img" [src]="project?.imageReference" alt="Фото объекта">
+    <button class="add-task-button" (click)="showAddTaskModal = !showAddTaskModal">
+      <svg>
+        <use href="assets/add-icon.svg#add-icon"></use>
+      </svg>
+      <span>Добавить задачу</span>
+    </button>
     <div class="project-info">
       <span class="project-address">{{ buildTypes[project?.type!] + ', ' + project?.address }}</span>
       <span class="project-name">{{ project?.name }}</span>
@@ -17,12 +23,13 @@
     </div>
   </div>
   <div class="project-tasks">
-    <div class="project-stage">Этап: Нулевой цикл =></div>
+    <div class="project-stage">Этап: Нулевой цикл</div>
     <div class="projects-tasks-bar">
-      @if(chartOptions) {
+      @if (chartOptions) {
         <apx-chart
           [series]="chartOptions.series"
           [chart]="chartOptions.chart"
+          [fill]="chartOptions.fill"
           [legend]="chartOptions.legend"
           [plotOptions]="chartOptions.plotOptions"
           [xaxis]="chartOptions.xaxis">
@@ -30,7 +37,64 @@
       }
     </div>
   </div>
-  @if(showTaskModalInfo) {
-    <app-task-modal-info [task]="selectedProjectTask"></app-task-modal-info>
+  @if (showAddTaskModal) {
+    <div class="add-task-modal-container">
+      <div class="wrapper">
+        <div class="add-task">
+          <h1>Создание задачи</h1>
+          <form [formGroup]="addTaskFormGroup" (ngSubmit)="onSubmit()">
+            <ul class="add-task-list">
+              <li class="name">
+                <input [formControlName]="'name'"
+                       placeholder="Название задачи"
+                       class="form__input"
+                       id="name">
+                <label for="name" class="form__label"></label>
+              </li>
+              <li class="start-date">
+                <input [formControlName]="'startDate'"
+                       placeholder="Начало работы"
+                       class="form__input"
+                       id="startDate"
+                        type="date">
+                <label for="startDate" class="form__label"></label>
+              </li>
+              <li class="expected-end-date">
+                <input [formControlName]="'expectedEndDate'"
+                       placeholder="Дата завершения"
+                       class="form__input"
+                       id="expectedEndDate"
+                       type="date">
+                <label for="expectedEndDate" class="form__label"></label>
+              </li>
+              <li class="head">
+                <input [formControlName]="'head'"
+                       placeholder="Ответственное лицо"
+                       class="form__input"
+                       id="head">
+                <label for="head" class="form__label"></label>
+              </li>
+              <li class="person">
+                <input [formControlName]="'person'"
+                       placeholder="Направленный человек"
+                       class="form__input"
+                       id="person">
+                <label for="person" class="form__label"></label>
+              </li>
+              <li class="comment">
+                <input [formControlName]="'comment'"
+                       placeholder="Комментарий"
+                       class="form__input"
+                       id="comment">
+                <label for="comment" class="form__label"></label>
+              </li>
+            </ul>
+          </form>
+          <button class="button-modal-save-task" (click)="onSubmit(); showAddTaskModal = !showAddTaskModal">Создать</button>
+        </div>
+      </div>
+    </div>
   }
 </div>
+
+
