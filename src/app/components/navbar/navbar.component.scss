@@ -9,6 +9,7 @@
   flex-direction: column;
   background-color: #121E32;
   color: white;
+  box-sizing: border-box;
 
   @media (max-width: $tablet) {
     @include sizes(100%, max-content);
