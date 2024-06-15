@@ -35,8 +35,6 @@ export class AdminPanelComponent implements OnInit {
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
     this.navbarService.emitProjectsLinks(this.projects);
     this.changeDetection.markForCheck();
-    console.log(this.projects);
-    console.log(this.projectsTaskInfo);
   }
 
   protected handleFindProjectTaskInfo(project: Project) {

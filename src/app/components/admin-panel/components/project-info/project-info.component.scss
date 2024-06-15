@@ -69,3 +69,12 @@
     @include fontSize(20px, 22px);
   }
 }
+
+.project-tasks {
+  display: flex;
+  flex-direction: column;
+  .projects-tasks-bar {
+    width: 100%;
+    height: 100%;
+  }
+}

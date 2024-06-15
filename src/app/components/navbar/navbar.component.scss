@@ -54,4 +54,16 @@
   .navbar-link-active {
     background-color: #4EAAC2;
   }
+
+  .navbar-projects-links {
+    display: none;
+  }
+
+  .navbar-projects-links.navbar-projects-links-active {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 500px;
+  }
+
 }
