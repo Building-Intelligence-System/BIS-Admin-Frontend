@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable, NgZone} from '@angular/core';
-import {LatLngBounds, Layer, LeafletEventHandlerFn, Map, MapOptions} from "leaflet";
+import {LatLng, LatLngBounds, Layer, LeafletEventHandlerFn, Map, MapOptions} from "leaflet";
 import {MapMarker} from "../model/map-marker.model";
 
 @Injectable({
@@ -22,6 +22,10 @@ export class MapService {
   public destroy(): void {
     this.map.clearAllEventListeners();
     this.map.remove();
+  }
+
+  public flyTo(coordinates: LatLng) {
+    this.map.flyTo(coordinates);
   }
 
   public flyToMarker(marker: MapMarker): void {
