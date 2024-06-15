@@ -3,7 +3,6 @@ import {BuildCardComponent} from "./components/build-card/build-card.component";
 import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {Project} from "../../core/entities/project/project.model";
-import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 import {ProjectsInfoComponent} from "./components/projects-info/projects-info.component";
 import {ProjectTasksInfo} from "../../core/entities/project-tasks-info/projects-tasks-info.model";
 import {Router} from "@angular/router";
@@ -23,6 +22,7 @@ import {NavbarService} from "../../services/navbar.service";
 export class AdminPanelComponent implements OnInit {
   protected projects: Project[] = [];
   protected projectsTaskInfo: ProjectTasksInfo[] = [];
+
   constructor(private httpClient: HttpClient,
               private router: Router,
               private changeDetection: ChangeDetectorRef,

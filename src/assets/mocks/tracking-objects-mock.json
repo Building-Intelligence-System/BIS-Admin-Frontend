@@ -1,0 +1,167 @@
+[
+  {
+    "id": "1",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 45.039190,
+      "lon": 38.954079
+    }
+  },
+  {
+    "id": "2",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 45.041017,
+      "lon": 38.960388
+    }
+  },
+  {
+    "id": "3",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 45.084539,
+      "lon": 39.017168
+    }
+  },
+  {
+    "id": "4",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 45.017065,
+      "lon": 39.074468
+    }
+  },
+  {
+    "id": "5",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 44.845958,
+      "lon": 37.731615
+    }
+  },
+  {
+    "id": "6",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 44.597376,
+      "lon": 39.023251
+    }
+  },
+  {
+    "id": "7",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 44.959062,
+      "lon": 41.985744
+    }
+  },
+  {
+    "id": "8",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 43.581596,
+      "lon": 39.751626
+    }
+  },
+  {
+    "id": "9",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 54,
+      "lon": 40
+    }
+  },
+  {
+    "id": "10",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 44.305928,
+      "lon": 42.946023
+    }
+  },
+  {
+    "id": "11",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 54,
+      "lon": 40
+    }
+  },
+  {
+    "id": "12",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 45.723543,
+      "lon": 47.185622
+    }
+  },
+  {
+    "id": "13",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 46.132479,
+      "lon": 39.843081
+    }
+  },
+  {
+    "id": "14",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 46.304236,
+      "lon": 43.122401
+    }
+  },
+  {
+    "id": "15",
+    "type": "CAR",
+    "status": "WORKING",
+    "model": "model",
+    "imei": "1234512345",
+    "position": {
+      "lat": 44.553169,
+      "lon": 38.954660
+    }
+  }
+]

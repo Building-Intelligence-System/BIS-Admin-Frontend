@@ -1,0 +1,12 @@
+@if (showTileLayerList) {
+  <div class="layer-menu">
+    @for (layer of enumTypeValues(mapProviders); track layer) {
+      <li class="layer-option" (click)="handleListItem(layer)">
+        {{ layer }}
+      </li>
+    }
+  </div>
+} @else {
+  <button (click)="handleListButton()">🗺️</button>
+}
+
