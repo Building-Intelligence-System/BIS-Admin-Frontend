@@ -22,7 +22,8 @@ export class MarkerService {
     const markerDiv: DivIcon = divIcon({
       html: icon,
       iconSize: [35, 35],
-      iconAnchor: [20, 20]
+      iconAnchor: [20, 20],
+      shadowSize: [10, 10]
     })
     return new Marker(new LatLng(latitude, longitude), {icon: markerDiv});
   }
@@ -35,9 +36,12 @@ export class MarkerService {
     marker.ChangeCoordinates(new LatLng(newLatitude, newLongitude));
   }
 
-  public buildMarkerHtml(iconType: MarkerIconType): string {
+  public buildMarkerHtml(iconType: MarkerIconType, withObjectMarker: boolean = true): string {
     const iconSvg = this.assetService.markerIcons.get(iconType);
     const markerSvg = this.assetService.objectMarker;
+    if(!withObjectMarker) {
+      return iconSvg ?? '';
+    }
     return iconSvg + markerSvg;
   }
 
