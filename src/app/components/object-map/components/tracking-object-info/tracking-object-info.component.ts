@@ -12,8 +12,13 @@ export class TrackingObjectInfoComponent {
   @Input({required: true}) trackingObject: TrackingObject | undefined;
 
   @Output() backToTrackingListEvent: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() trackingObjectVideo: EventEmitter<Event> = new EventEmitter<Event>();
 
   protected handleBackToTrackingListEvent($event: Event) {
     this.backToTrackingListEvent.emit($event);
+  }
+
+  protected handleTrackingObjectVideo($event: Event) {
+    this.trackingObjectVideo.emit($event);
   }
 }

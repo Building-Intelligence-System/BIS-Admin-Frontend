@@ -22,6 +22,7 @@ import {ColorType} from "../../features/model/color-type";
 import {MapMarker} from "../../features/model/map-marker.model";
 import {TrackingObjectInfoComponent} from "./components/tracking-object-info/tracking-object-info.component";
 import {MapService} from "../../features/services/map.service";
+import {TrackingObjectVideoComponent} from "./components/tracking-object-video/tracking-object-video.component";
 
 @Component({
   selector: 'app-object-map',
@@ -31,7 +32,8 @@ import {MapService} from "../../features/services/map.service";
     MapZoomComponent,
     MapControlComponent,
     TrackingObjectListComponent,
-    TrackingObjectInfoComponent
+    TrackingObjectInfoComponent,
+    TrackingObjectVideoComponent
   ],
   templateUrl: './object-map.component.html',
   styleUrl: './object-map.component.scss',
@@ -46,6 +48,8 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
   protected trackingObjects: TrackingObject[] = [];
   protected trackingObjectMap: Map<number, TrackingObject> = new Map();
   protected selectedTrackingObject: TrackingObject | undefined;
+
+  protected showTrackingObjectVideo: boolean = false;
 
   @ViewChild("map") private mapElementRef!: ElementRef;
   private map!: map;
@@ -92,6 +96,16 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
 
   protected handleBackToTrackingObjectList() {
     this.selectedTrackingObject = undefined;
+    this.changeDetection.markForCheck();
+  }
+
+  protected handleTrackingObjectVideo() {
+    this.showTrackingObjectVideo = true;
+    this.changeDetection.markForCheck();
+  }
+
+  protected handleTrackingObjectVideoClose() {
+    this.showTrackingObjectVideo = false;
     this.changeDetection.markForCheck();
   }
 
