@@ -1,0 +1,12 @@
+<div class="tracking-objects-list">
+  <ul>
+    @for (trackingObject of trackingObjects; track $index) {
+      <li>
+        <img class="list-tracking-object-img" [src]="TrackingObjectUrl[trackingObject.type ?? 'CAR']">
+        {{trackingObject.model}}
+        {{trackingObject.status}}
+        {{trackingObject.imei}}
+      </li>
+    }
+  </ul>
+</div>
