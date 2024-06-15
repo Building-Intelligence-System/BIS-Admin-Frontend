@@ -19,11 +19,11 @@
       <span class="project-date-end">планируемый</span>
       <span class="project-date-end-value">{{ DateUtils.convertIsoDate(project?.end ?? '') }}</span>
       <span class="project-date-expected">фактический</span>
-      <span class="project-date-expected-value">{{ DateUtils.convertIsoDate(project?.expectedDuration ?? '') }}</span>
+      <span class="project-date-expected-value">{{ DateUtils.convertIsoDate(project?.end ?? '') }}</span>
     </div>
   </div>
   <div class="project-tasks">
-    <div class="project-stage">Этап: Нулевой цикл</div>
+    <div class="project-stage">Этап: {{projectStages![currentStage].name}}<span class="next-stage" (click)="handleProjectStage()">  =></span></div>
     <div class="projects-tasks-bar">
       @if (chartOptions) {
         <apx-chart
@@ -96,5 +96,7 @@
     </div>
   }
 </div>
-
+@if(showTaskModalInfo) {
+  <app-task-modal-info [task]="selectedProjectTask" (closeEvent)="showTaskModalInfo = false"></app-task-modal-info>
+}
 

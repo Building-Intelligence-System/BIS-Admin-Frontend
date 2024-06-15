@@ -1,6 +1,6 @@
 <div class="task-modal">
   <div class="task-modal-info">
-    <div class="task-modal-info-close">x</div>
+    <div class="task-modal-info-close" (click)="handleCloseModal($event)">x</div>
     <h2 class="task-modal-title">Информация о задаче</h2>
     <label class="task-modal-label">Задача:
       <input class="task-modal-input" [value]="task?.name" [disabled]="true">
