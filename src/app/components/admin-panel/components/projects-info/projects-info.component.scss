@@ -35,7 +35,7 @@
       color: white;
 
       .projects-number {
-        @include fontSize(90px, 90px);
+        @include fontSize(80px, 80px);
         font-weight: bold;
         @media (max-width: $mobile) {
           @include fontSize(60px, 60px);

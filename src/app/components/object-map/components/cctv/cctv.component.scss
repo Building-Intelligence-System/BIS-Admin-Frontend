@@ -29,6 +29,8 @@
 
 .cctv-player {
   @include sizes(1000px, 500px);
+  max-width: 100dvw;
+  max-height: 100dvh;
   z-index: 1001;
 }
 
