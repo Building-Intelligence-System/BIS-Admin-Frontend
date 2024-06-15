@@ -58,7 +58,6 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
   protected selectedCCTVObject: CCTV | undefined;
 
   protected showTrackingObjectVideo: boolean = false;
-  protected showCCTVObjects: boolean = false;
 
   @ViewChild("map") private mapElementRef!: ElementRef;
   private map!: map;
@@ -80,7 +79,6 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
       this.cctvObjectMap.set(cctvObject.id!, cctvObject);
       const mapCCTVMarker = this.mapFacadeService.createObjectMarker(cctvObject.lat!, cctvObject.lon!, 0, MarkerIconType.CCTV, ColorType.BLUE, cctvObject.id!, false);
       mapCCTVMarker.OnClick((marker) => {
-        this.showCCTVObjects = true;
         this.selectedCCTVObject = this.cctvObjectMap.get(marker.sourceTarget.options.entityId);
         this.changeDetection.markForCheck();
       })
@@ -128,6 +126,11 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
 
   protected handleTrackingObjectVideoClose() {
     this.showTrackingObjectVideo = false;
+    this.changeDetection.markForCheck();
+  }
+
+  protected handleCCTVObjectClose() {
+    this.selectedCCTVObject = undefined;
     this.changeDetection.markForCheck();
   }
 
