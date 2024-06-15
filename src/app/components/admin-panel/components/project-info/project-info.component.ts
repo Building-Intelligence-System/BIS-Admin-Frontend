@@ -19,6 +19,7 @@ import {
   ChartComponent,
   NgApexchartsModule
 } from "ng-apexcharts";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -34,7 +35,8 @@ export type ChartOptions = {
   standalone: true,
   imports: [
     AsyncPipe,
-    NgApexchartsModule
+    NgApexchartsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './project-info.component.html',
   styleUrl: './project-info.component.scss',
@@ -44,6 +46,8 @@ export class ProjectInfoComponent implements OnInit {
   protected project: Project | undefined;
   protected projectTaskInfo: ProjectTasksInfo | undefined;
   protected projectTasks: Task[] | undefined;
+  protected showAddTaskModal: boolean = true;
+  protected addTaskFormGroup: FormGroup = new FormGroup({});
 
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions | undefined;
@@ -54,6 +58,15 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.addTaskFormGroup = new FormGroup({
+    name: new FormControl(),
+    startDate: new FormControl(),
+    expectedEndDate: new FormControl(),
+    head: new FormControl(),
+    person: new FormControl(),
+    comment: new FormControl()
+  });
+
     this.activatedRoute.params.subscribe(async (next: Params) => {
       const projectPromise = firstValueFrom(this.httpClient.get<Project>(`assets/mocks/project-${next['projectId']}-mock.json`));
       const projectTaskInfoPromise = firstValueFrom(this.httpClient.get<ProjectTasksInfo>(`assets/mocks/project-${next['projectId']}-task-info-mock.json`));
@@ -63,6 +76,11 @@ export class ProjectInfoComponent implements OnInit {
       this.createChartOptions(this.projectTasks);
       this.changeDetection.markForCheck();
     });
+  }
+
+  protected onSubmit() {
+    console.log(this.addTaskFormGroup.value);
+    this.addTaskFormGroup.reset();
   }
 
   protected createChartOptions(tasks: Task[]) {
