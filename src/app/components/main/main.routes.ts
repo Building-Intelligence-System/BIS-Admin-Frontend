@@ -4,6 +4,7 @@ import {ChartsComponent} from "../charts/charts.component";
 import {authGuard} from "../../guards/auth.guard";
 import {AdminPanelComponent} from "../admin-panel/admin-panel.component";
 import {ProjectInfoComponent} from "../admin-panel/components/project-info/project-info.component";
+import {TaskModalInfoComponent} from "../admin-panel/components/project-info/task-modal-info/task-modal-info.component";
 
 export const mainRoutes: Routes = [
   {

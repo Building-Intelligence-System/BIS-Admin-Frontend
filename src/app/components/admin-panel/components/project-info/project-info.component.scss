@@ -98,6 +98,14 @@
 .project-tasks {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
+  .project-stage {
+    @include fontSize(20px, 20px);
+
+    .next-stage {
+      cursor: pointer;
+    }
+  }
 
   .projects-tasks-bar {
     width: 100%;
@@ -111,13 +119,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+
+  input {
+    @include fontSize(20px, 20px);
+    height: 32px;
+  }
 
   .wrapper {
     width: 500px;
     height: 500px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #121E32;
     padding: 20px 30px;
 
     .add-task {

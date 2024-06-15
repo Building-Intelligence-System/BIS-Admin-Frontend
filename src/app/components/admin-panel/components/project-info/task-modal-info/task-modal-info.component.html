@@ -1,0 +1,25 @@
+<div class="task-modal">
+  <div class="task-modal-info">
+    <div class="task-modal-info-close" (click)="handleCloseModal($event)">x</div>
+    <h2 class="task-modal-title">Информация о задаче</h2>
+    <label class="task-modal-label">Задача:
+      <input class="task-modal-input" [value]="task?.name" [disabled]="true">
+    </label>
+    <label class="task-modal-label">Ответственный:
+      <input class="task-modal-input" [value]="task?.responsible" [disabled]="true">
+    </label>
+    <label class="task-modal-label">Начало работы над заданием:
+      <input class="task-modal-input" [value]="DateUtils.convertIsoDate(task?.startDate ?? '')" [disabled]="true">
+    </label>
+    <label class="task-modal-responsible">Ожидаемая дата окончание работ:
+      <input class="task-modal-responsible-input" [value]="DateUtils.convertIsoDate(task?.expectedEndDate ?? '')" [disabled]="true">
+    </label>
+    <label class="task-modal-responsible">Реальная дата окончания работ:
+      <input class="task-modal-responsible-input" [value]="DateUtils.convertIsoDate(task?.expectedEndDate ?? '')" [disabled]="true">
+    </label>
+    <label class="task-modal-responsible">Статус:
+      <input class="task-modal-responsible-input" [value]="task?.taskState ?? 'Неизвестно'" [disabled]="true">
+    </label>
+    <button class="task-modal-info-button">Изменить</button>
+  </div>
+</div>

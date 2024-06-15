@@ -20,6 +20,8 @@ import {
   NgApexchartsModule
 } from "ng-apexcharts";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {TaskModalInfoComponent} from "./task-modal-info/task-modal-info.component";
+import {Stage} from "../../../../core/entities/stage/stage.model";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -36,18 +38,29 @@ export type ChartOptions = {
   imports: [
     AsyncPipe,
     NgApexchartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TaskModalInfoComponent
   ],
   templateUrl: './project-info.component.html',
   styleUrl: './project-info.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectInfoComponent implements OnInit {
+  protected readonly buildTypes = buildTypes;
+  protected readonly DateUtils = DateUtils;
+
   protected project: Project | undefined;
   protected projectTaskInfo: ProjectTasksInfo | undefined;
   protected projectTasks: Task[] | undefined;
-  protected showAddTaskModal: boolean = true;
+  protected projectStages: Stage[] | undefined;
+
+  protected currentStage = 0;
+
+  protected showAddTaskModal: boolean = false;
   protected addTaskFormGroup: FormGroup = new FormGroup({});
+
+  protected showTaskModalInfo: boolean = false;
+  protected selectedProjectTask: Task | undefined;
 
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions | undefined;
@@ -71,8 +84,9 @@ export class ProjectInfoComponent implements OnInit {
       const projectPromise = firstValueFrom(this.httpClient.get<Project>(`assets/mocks/project-${next['projectId']}-mock.json`));
       const projectTaskInfoPromise = firstValueFrom(this.httpClient.get<ProjectTasksInfo>(`assets/mocks/project-${next['projectId']}-task-info-mock.json`));
       const projectTasksPromise = firstValueFrom(this.httpClient.get<Task[]>(`assets/mocks/project-1-tasks-mock.json`));
-      [this.project, this.projectTaskInfo, this.projectTasks] = await Promise.all([projectPromise, projectTaskInfoPromise, projectTasksPromise]);
-
+      const projectStagesPromise = firstValueFrom(this.httpClient.get<Stage[]>(`assets/mocks/project-stages-mock.json`));
+      [this.project, this.projectTaskInfo, this.projectTasks, this.projectStages] = await Promise.all([projectPromise, projectTaskInfoPromise, projectTasksPromise, projectStagesPromise]);
+      console.log(this.projectStages);
       this.createChartOptions(this.projectTasks);
       this.changeDetection.markForCheck();
     });
@@ -93,13 +107,17 @@ export class ProjectInfoComponent implements OnInit {
             y: [
               new Date(task.startDate ?? 0).getTime(),
               new Date(task.actualEndDate ?? 0).getTime()
-            ]
+            ],
+            fillColor: this.handleTaskColor(task),
+            meta: task
           }
         ]
       })),
       chart: {
         height: 350,
-        type: "rangeBar"
+        type: "rangeBar",
+        events: { dataPointSelection: (e, chart, opts) => {
+            this.handleTaskClick(opts['seriesIndex']); } },
       },
       plotOptions: {
         bar: {
@@ -132,7 +150,20 @@ export class ProjectInfoComponent implements OnInit {
     };
   }
 
-  protected readonly buildTypes = buildTypes;
-  protected readonly DateUtils = DateUtils;
+  protected handleTaskClick(taskIndex: number) {
+    if (!this.projectTasks) return;
+    this.showTaskModalInfo = true;
+    this.selectedProjectTask = this.projectTasks[taskIndex];
+    this.changeDetection.markForCheck()
+  }
+
+  protected handleProjectStage() {
+    this.currentStage += 1;
+    this.changeDetection.markForCheck();
+  }
+
+  private handleTaskColor(task: Task) {
+    return (task.expectedEndDate ?? 0) > (task.actualEndDate ?? 0) ? '#40af24' : '#bd1f1f';
+  }
 }
 
