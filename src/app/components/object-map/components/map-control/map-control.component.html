@@ -1,0 +1,5 @@
+<div class="map-control-buttons">
+  <app-map-geolocation (clickEvent)="geolocationButtonClick.emit()" [hidden]="!showGeolocationButton"/>
+  <app-map-zoom [hidden]="!showZoomButtons"/>
+</div>
+<app-map-tile-selector [hidden]="!showTileSelectorButton" class="map-control-tile-selector"/>
