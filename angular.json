@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/bis-admin-frontend",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -48,7 +48,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "100mB",d
+                  "maximumWarning": "100mB",
                   "maximumError": "100mB"
                 }
               ],
