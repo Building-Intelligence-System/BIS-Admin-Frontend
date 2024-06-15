@@ -47,11 +47,11 @@ export class MapFacadeService {
     this.mapService.disableZoomOut(zoomElement, zoomValue);
   }
 
-  public createObjectMarker(latitude: number, longitude: number, course: number, iconType: MarkerIconType, colorType: ColorType, trackingObjectId: number): MapMarker {
-    const icon = this.markerService.buildMarkerHtml(iconType);
+  public createObjectMarker(latitude: number, longitude: number, course: number, iconType: MarkerIconType, colorType: ColorType, entityId: number, withObjectMarker: boolean = true): MapMarker {
+    const icon = this.markerService.buildMarkerHtml(iconType, withObjectMarker);
     const marker = this.createMarkerOnLayer(latitude, longitude, course, icon, MapLayerType.OBJECT_MARKERS);
     // @ts-ignore
-    marker.options['trackingObjectId'] = trackingObjectId
+    marker.options['entityId'] = entityId
     return new MapMarker(iconType, colorType, marker);
   }
 

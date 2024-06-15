@@ -4,4 +4,5 @@
   <span class="tracking-object-info-property">{{ 'Статус :' + trackingObject?.status }}</span>
   <span class="tracking-object-info-property">{{ 'IMEI :' + trackingObject?.imei }}</span>
   <span class="back-to-tracking-object-list" (click)="handleBackToTrackingListEvent($event)"><=</span>
+  <span class="tracking-object-video">Видеорегистратор: <span class="video" (click)="handleTrackingObjectVideo($event)">🎦</span></span>
 </div>

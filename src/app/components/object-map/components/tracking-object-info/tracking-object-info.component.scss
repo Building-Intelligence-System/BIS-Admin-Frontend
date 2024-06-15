@@ -10,8 +10,8 @@
 
 .tracking-object-info {
   position: relative;
-  min-width: 180px;
-  min-height: 400px;
+  min-width: 300px;
+  min-height: 500px;
   @include sizes(100%, 100%);
   display: flex;
   flex-direction: column;
@@ -21,15 +21,20 @@
   color: white;
 
   .tracking-object-info-title {
-    @include fontSize(26px, 26px);
+    @include fontSize(30px, 30px);
   }
 
   .tracking-object-info-property {
-    @include fontSize(18px, 28px);
+    @include fontSize(20px, 20px);
   }
 
   .back-to-tracking-object-list {
-    @include fontSize(18px, 28px);
+    @include fontSize(20px, 20px);
     cursor: pointer;
   }
+}
+
+.video {
+  @include fontSize(30px, 30px);
+  cursor: pointer;
 }

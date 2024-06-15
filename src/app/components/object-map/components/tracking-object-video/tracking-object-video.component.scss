@@ -1,0 +1,31 @@
+@import "../../../../../styles/mixins";
+
+.tracking-object-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include sizes(100dvw, 100dvh);
+  @include flexContent(center, center);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+}
+
+.tracking-object-video-container {
+  position: relative;
+}
+
+iframe {
+  width: 1000px;
+  height: 500px;
+  z-index: 5000;
+}
+
+.tracking-object-video-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: 2000;
+  @include fontSize(40px, 40px);
+  color: white;
+  cursor: pointer;
+}

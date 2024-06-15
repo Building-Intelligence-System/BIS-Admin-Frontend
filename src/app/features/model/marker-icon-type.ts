@@ -5,5 +5,6 @@ export enum MarkerIconType {
   TRUCK = "TRUCK",
   TANKER = "TANKER",
   TRUCKCRANE = "TRUCKCRANE",
+  CCTV = "CCTV"
 }
 

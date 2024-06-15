@@ -1,0 +1,29 @@
+@import "../../../../../styles/mixins";
+
+.cctv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include sizes(100dvw, 100dvh);
+  @include flexContent(center, center);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+}
+
+.cctvs {
+  width: 200px;
+  height: 400px;
+  z-index: 5000;
+  background-color: #121E32;
+  color: white;
+}
+
+.cctv-player {
+  @include sizes(1000px, 500px);
+  z-index: 5000;
+}
+
+.cctv-camera {
+  @include fontSize(20px, 20px);
+  cursor: pointer;
+}
