@@ -1,0 +1,34 @@
+<div class="project">
+  <div class="project-container"
+       [style.background-color]="(projectTaskInfo?.currentPlan ?? 0) > (projectTaskInfo?.expectedPlan ?? 0) ? '#2CA266' : '#E7683F'">
+    <img class="project-img" [src]="project?.imageReference" alt="Фото объекта">
+    <div class="project-info">
+      <span class="project-address">{{ buildTypes[project?.type!] + ', ' + project?.address }}</span>
+      <span class="project-name">{{ project?.name }}</span>
+      <span class="project-current-plan">{{ projectTaskInfo?.currentPlan + '%' }}</span>
+      <span class="project-expected-plan">{{ 'план:' + projectTaskInfo?.expectedPlan + '%' }}</span>
+    </div>
+    <div class="project-date">
+      <span class="project-date-title">Срок сдачи</span>
+      <span class="project-date-end">планируемый</span>
+      <span class="project-date-end-value">{{ DateUtils.convertIsoDate(project?.end ?? '') }}</span>
+      <span class="project-date-expected">фактический</span>
+      <span class="project-date-expected-value">{{ DateUtils.convertIsoDate(project?.expectedDuration ?? '') }}</span>
+    </div>
+  </div>
+  <div class="project-tasks">
+    <div class="project-stage">Этап: Нулевой цикл</div>
+    <div class="projects-tasks-bar">
+      @if(chartOptions) {
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [fill]="chartOptions.fill"
+          [legend]="chartOptions.legend"
+          [plotOptions]="chartOptions.plotOptions"
+          [xaxis]="chartOptions.xaxis">
+        </apx-chart>
+      }
+    </div>
+  </div>
+</div>

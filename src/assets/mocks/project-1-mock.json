@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "Смородина",
+  "type": "RESIDENTIAL",
+  "address": "Краснодар",
+  "start": "2010-04-23T18:25:43.511Z",
+  "end": "2010-04-23T18:25:43.511Z",
+  "expectedEndDate": "2012-04-23T18:25:43.511Z",
+  "imageReference": "assets/builds/build-1.jpg"
+}

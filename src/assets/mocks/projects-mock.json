@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Смородина",
+    "type": "RESIDENTIAL",
+    "address": "Краснодар",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ural",
+    "type": "RESIDENTIAL",
+    "address":"Адыгея",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Кислород",
+    "type": "RESIDENTIAL",
+    "address": "Краснодар",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Летний",
+    "type": "RESIDENTIAL",
+    "address": "Адлер",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Зеленодар",
+    "type": "RESIDENTIAL",
+    "address": "Сочи",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Ural-2",
+    "type": "RESIDENTIAL",
+    "address": "Краснодар",
+    "start": "2010-04-23T18:25:43.511Z",
+    "end": "2010-04-23T18:25:43.511Z",
+    "expectedEndDate": "2010-04-23T18:25:43.511Z",
+    "imageReference": "assets/builds/build-6.jpg"
+  }
+]

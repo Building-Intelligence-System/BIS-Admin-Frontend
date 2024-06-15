@@ -1,0 +1,16 @@
+<div class="admin-panel">
+  <div class="admin-panel-container">
+    <input class="admin-panel-search" placeholder="Поиск">
+    <img class="admin-panel-user-photo" src="../../../assets/admin-photo.jpg" alt="Пользователь">
+  </div>
+  <app-projects-info [projects]="projects" [projectTasksInfo]="projectsTaskInfo"></app-projects-info>
+  <div class="admin-builds">
+    @for (project of projects; track $index) {
+      <app-build-card
+        [project]="project"
+        [projectTasksInfo]="handleFindProjectTaskInfo(project)"
+        (click)="handleBuildCardClick(project)">
+      </app-build-card>
+    }
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "id": 5,
+  "name": "Зеленодар",
+  "type": "RESIDENTIAL",
+  "address": "Сочи",
+  "start": "2010-04-23T18:25:43.511Z",
+  "end": "2010-04-23T18:25:43.511Z",
+  "expectedEndDate": "2010-04-23T18:25:43.511Z",
+  "imageReference": "assets/builds/build-5.jpg"
+}

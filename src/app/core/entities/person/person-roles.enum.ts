@@ -1,0 +1,7 @@
+export enum PersonRoles {
+  WORKER = "WORKER",
+  DRIVER = "DRIVER",
+  FOREMAN = "FOREMAN",
+  DISPATCHER = "DISPATCHER",
+  DIRECTOR = "DIRECTOR"
+}

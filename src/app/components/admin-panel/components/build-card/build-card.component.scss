@@ -1,0 +1,56 @@
+@import "../../../../../styles/mixins";
+
+.build-card {
+  display: flex;
+  flex-direction: column;
+  @include sizes(100%, 100%);
+  cursor: pointer;
+
+  .build-container {
+    position: relative;
+  }
+
+  .build-img {
+    display: flex;
+    flex-grow: 1;
+    @include sizes(100%, 260px);
+    background-size: contain;
+  }
+
+  .build-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .build-description {
+      @include fontSize(12px, 14px);
+    }
+
+    .build-name {
+      @include fontSize(24px, 28px);
+    }
+
+  }
+
+  .build-plan {
+    @include sizes(100%, 80px);
+    display: flex;
+    color: white;
+
+    .build-expectation-plan {
+      @include fontSize(12px, 14px);
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 10px;
+      padding-left: 10px;
+    }
+
+    .build-real-plan {
+      @include fontSize(64px, 74px);
+    }
+  }
+}

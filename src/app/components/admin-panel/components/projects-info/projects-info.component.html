@@ -1,0 +1,24 @@
+<div class="admin-projects-info">
+  <div class="admin-project-info">
+    <div class="projects-description">Проекты</div>
+    <div class="projects-info">
+      <span class="projects-number">{{ projects.length }}</span>
+      <span class="projects-lag-number">с отставанием: {{ projectsLagNumber }}</span>
+    </div>
+  </div>
+  <div class="admin-project-info">
+    <div class="projects-description">План-график</div>
+    <div class="projects-info">
+      <span class="projects-plan-number"
+            [style.color]="projectsCurrentPlan > projectsExpectedPlan ? '#2CA266' : '#E7683F'">{{ projectsCurrentPlan.toFixed(1) + '%' }}</span>
+      <span class="projects-lag-number">план: {{ projectsExpectedPlan.toFixed(1) + '%' }}</span>
+    </div>
+  </div>
+  <div class="admin-project-info">
+    <div class="projects-description">% рекламаций</div>
+    <div class="projects-info">
+      <span class="projects-number">{{ '10' }}</span>
+      <span class="projects-lag-number">план: {{ '44.3%' }}</span>
+    </div>
+  </div>
+</div>

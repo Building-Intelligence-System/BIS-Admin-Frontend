@@ -1,0 +1,78 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.auth {
+  display: flex;
+  @include sizes(100dvw, 100dvh);
+  padding: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  @media (max-width: $tablet) {
+    @include flexContent(center, center);
+  }
+
+  .auth-img {
+    @include sizes(50%, 100%);
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-clip: content-box;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  .auth-form-container {
+    @include flexContent(center, center);
+    @include sizes(50%, 100%);
+    .auth-form {
+      background-color: rgba(238, 235, 230, 0.1);
+      border-radius: 15px;
+      width: 350px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .auth-inputs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .auth-form-title {
+        @include fontSize(32px, 24px);
+        height: max-content;
+        box-sizing: border-box;
+        padding-bottom: 50px;
+        text-align: center;
+      }
+      .auth-label {
+        @include fontSize(22px, 12px);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .auth-input {
+        @include fontSize(18px, 12px);
+        @include sizes(100%, 32px);
+        border-radius: 10px;
+        padding-left: 10px;
+        outline: none;
+        border: 1px solid rgba(204, 204, 204, 0.7);
+        box-sizing: border-box;
+      }
+
+      .auth-submit {
+        outline: none;
+        border: none;
+        @include sizes(100%, 42px);
+        border-radius: 10px;
+        background-color: rgb(18, 30, 50);
+        color: white;
+      }
+    }
+  }
+}
