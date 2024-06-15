@@ -78,3 +78,77 @@
   grid-template-rows: repeat(2, 340px);
   padding-bottom: 60px;
 }
+
+.create-new-project-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px 20px;
+  border-radius: 50%;
+  background-color: #131e31;
+  color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+
+  svg {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.container-create-new-project {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    width: 500px;
+    height: 500px;
+    background-color: #131e31;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h1 {
+      color: white;
+      font-size: 32px;
+    }
+
+    .create-project-list {
+      display: grid;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+
+      li  {
+        width: 250px;
+
+        input {
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          padding: 10px 20px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+    }
+    .submit {
+      cursor: pointer;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      padding: 10px 20px;
+  }
+}

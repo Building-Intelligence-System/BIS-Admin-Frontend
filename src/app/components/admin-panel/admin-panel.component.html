@@ -13,4 +13,56 @@
       </app-build-card>
     }
   </div>
+  <button class="create-new-project-button" (click)="showCreateNewProjectModal = !showCreateNewProjectModal">
+    <svg>
+      <use href="assets/add-icon.svg#add-icon"></use>
+    </svg>
+  </button>
 </div>
+@if (showCreateNewProjectModal) {
+  <div class="container-create-new-project">
+    <div class="wrapper">
+      <h1>Создание нового проекта</h1>
+      <form [formGroup]="createNewProjectFormGroup" (ngSubmit)="onSubmit()">
+        <ul class="create-project-list">
+          <li class="imageUrl">
+            <input [formControlName]="'imageUrl'"
+                   type="text"
+                   id="image-url"
+            placeholder="Введите URL картинки">
+            <label for="image-url"></label>
+          </li>
+          <li class="start-date">
+            <input type="date"
+                   id="start-date"
+                   [formControlName]="'startDate'"
+                   placeholder="Введите начала">
+            <label for="start-date"></label>
+          </li>
+          <li class="end-date">
+            <input type="date"
+                   id="end-date"
+                   [formControlName]="'endDate'"
+                   placeholder="Введите дату окончания">
+            <label for="end-date"></label>
+          </li>
+          <li class="name">
+            <input type="text"
+                   id="name"
+                   [formControlName]="'name'"
+                   placeholder="Введите название проекта">
+            <label for="name"></label>
+          </li>
+          <li class="address">
+            <input type="text"
+                   id="address"
+                   [formControlName]="'address'"
+                   placeholder="Введите адрес проекта">
+            <label for="address"></label>
+          </li>
+        </ul>
+      </form>
+      <button class="submit" (click)="onSubmit(); showCreateNewProjectModal = !showCreateNewProjectModal">Сохранить</button>
+    </div>
+  </div>
+}

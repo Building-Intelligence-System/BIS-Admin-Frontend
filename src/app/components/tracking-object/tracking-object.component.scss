@@ -1,0 +1,55 @@
+:host {
+  display: contents;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+
+  .canvas-container {
+    display: flex;
+    gap: 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+  .bar {
+    height: 400px !important;
+    width: 400px !important;
+  }
+    .doughnut {
+      height: 400px !important;
+      width: 400px !important;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0 20px 0;
+  }
+}
+
+table {
+  border: 1px solid lightgray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 100%;
+}
+
+.mat-column-position,
+.mat-column-id,
+.mat-column-name,
+.mat-column-type,
+.mat-column-outage {
+  width: 32px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-right: 24px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
