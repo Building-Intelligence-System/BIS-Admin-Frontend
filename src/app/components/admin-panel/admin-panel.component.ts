@@ -24,7 +24,7 @@ export class AdminPanelComponent implements OnInit {
   protected projects: Project[] = [];
   protected projectsTaskInfo: ProjectTasksInfo[] = [];
 
-  protected showCreateNewProjectModal: boolean = true;
+  protected showCreateNewProjectModal: boolean = false;
   protected createNewProjectFormGroup: FormGroup = new FormGroup({
     imageUrl: new FormControl(''),
     startDate: new FormControl(''),
@@ -43,13 +43,6 @@ export class AdminPanelComponent implements OnInit {
     const projectsTaskInfo = firstValueFrom(this.httpClient.get<ProjectTasksInfo[]>('assets/mocks/projects-tasks-info-mock.json'));
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
 
-    this.createNewProjectFormGroup = new FormGroup({
-      imageUrl: new FormControl(''),
-      startDate: new FormControl(''),
-      endDate: new FormControl(''),
-      name: new FormControl(''),
-      address: new FormControl(''),
-    });
     this.changeDetection.markForCheck();
   }
 

@@ -1,4 +1,5 @@
 @import "../../../../../styles/mixins";
+@import "../../../../../styles/variables";
 
 :host {
   position: absolute;
@@ -6,6 +7,12 @@
   transform: translate(0, -50%);
   right: 0;
   z-index: 2002;
+
+  @media (max-width: $mobile) {
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 30%);
+  }
 }
 
 .tracking-objects-list {
@@ -14,6 +21,11 @@
   height: 500px;
   z-index: 2002;
   background-color: #121E32;
+
+  @media (max-width: $tablet) {
+    width: 200px;
+    height: 300px;
+  }
 
   ul {
     display: flex;

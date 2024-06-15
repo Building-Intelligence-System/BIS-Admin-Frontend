@@ -1,4 +1,5 @@
 @import "../../../../../styles/mixins";
+@import "../../../../../styles/variables";
 
 :host {
   display: flex;
@@ -9,6 +10,7 @@
   position: relative;
   width: 100%;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .project-container {
@@ -33,6 +35,9 @@
     border: none;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     cursor: pointer;
+    @media (max-width: 1000px) {
+      padding: 5px 10px;
+    }
 
     svg {
       height: 16px;
@@ -43,6 +48,9 @@
 
 .project-img {
   height: 100%;
+  @media (max-width: $tablet) {
+    display: none;
+  }
 }
 
 .project-info {
@@ -51,6 +59,10 @@
   color: white;
   padding: 20px;
 
+  @media (max-width: 1000px) {
+    padding: 10px;
+  }
+
   .project-address {
     @include fontSize(22px, 26px);
   }
@@ -58,15 +70,27 @@
   .project-name {
     @include fontSize(45px, 52px);
     font-weight: bold;
+    @media (max-width: $mobile) {
+      @include fontSize(22px, 30px);
+    }
   }
 
   .project-current-plan {
     @include fontSize(120px, 140px);
     font-weight: bold;
+    @media (max-width: 1000px) {
+      @include fontSize(90px, 110px);
+    }
+    @media (max-width: $mobile) {
+      @include fontSize(60px, 80px);
+    }
   }
 
   .project-expected-plan {
     @include fontSize(42px, 50px);
+    @media (max-width: $mobile) {
+      @include fontSize(22px, 30px);
+    }
   }
 }
 

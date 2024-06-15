@@ -11,19 +11,34 @@
 }
 
 .cctvs {
-  width: 200px;
-  height: 400px;
-  z-index: 5000;
+  position: relative;
+  @include sizes(200px, 440px);
+  padding: 10px;
+  z-index: 1001;
   background-color: #121E32;
   color: white;
 }
 
+.cctv-close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  @include fontSize(50px, 50px);
+  cursor: pointer;
+}
+
 .cctv-player {
   @include sizes(1000px, 500px);
-  z-index: 5000;
+  z-index: 1001;
 }
 
 .cctv-camera {
   @include fontSize(20px, 20px);
+  padding: 5px;
   cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    color: #121E32;
+  }
 }

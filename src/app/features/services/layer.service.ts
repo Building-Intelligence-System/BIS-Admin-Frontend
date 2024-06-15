@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {FeatureGroup, Marker, TileLayer, tileLayer} from "leaflet";
+import L, {FeatureGroup, Marker, TileLayer, tileLayer} from "leaflet";
+
 import {MapService} from "./map.service";
 import {MapLayerType} from "../model/map-layer-type";
 import {enumTypeValues} from "../../core/utils/enum.utils";
@@ -24,8 +25,18 @@ export const mapProvidersUrl: Record<mapProviders, string> = {
 };
 
 export const mapProvidersOptions: Record<mapProviders, TileLayer> = {
-  [mapProviders.DOUBLEGIS]: tileLayer(mapProvidersUrl.DOUBLEGIS, {subdomains: gis2Subdomains, minZoom: MIN_ZOOM, maxZoom: MAX_ZOOM, maxNativeZoom: 18}),
-  [mapProviders.GOOGLE_MAP]: tileLayer(mapProvidersUrl.GOOGLE_MAP, {subdomains: googleSubdomains, minZoom: MIN_ZOOM, maxZoom: MAX_ZOOM, maxNativeZoom: 18}),
+  [mapProviders.DOUBLEGIS]: tileLayer(mapProvidersUrl.DOUBLEGIS, {
+    subdomains: gis2Subdomains,
+    minZoom: MIN_ZOOM,
+    maxZoom: MAX_ZOOM,
+    maxNativeZoom: 18
+  }),
+  [mapProviders.GOOGLE_MAP]: tileLayer(mapProvidersUrl.GOOGLE_MAP, {
+    subdomains: googleSubdomains,
+    minZoom: MIN_ZOOM,
+    maxZoom: MAX_ZOOM,
+    maxNativeZoom: 18
+  }),
   [mapProviders.OSM]: tileLayer(mapProvidersUrl.OSM, {minZoom: MIN_ZOOM, maxZoom: MAX_ZOOM, maxNativeZoom: 18}),
 };
 
@@ -37,10 +48,11 @@ export class LayerService {
   private readonly layers: Record<MapLayerType, FeatureGroup | TileLayer>;
 
   constructor(private mapService: MapService) {
+
     this.layers = {
       [MapLayerType.DEFAULT]: new FeatureGroup(),
       [MapLayerType.MAIN_TILES]: mapProvidersOptions[mapProviders.DOUBLEGIS],
-      [MapLayerType.OBJECT_MARKERS]: new FeatureGroup(),
+      [MapLayerType.OBJECT_MARKERS]: L.markerClusterGroup({removeOutsideVisibleBounds: true}),
       [MapLayerType.GEOLOCATION_MARKER]: new FeatureGroup()
     };
   }
