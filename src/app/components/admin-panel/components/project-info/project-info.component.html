@@ -17,13 +17,12 @@
     </div>
   </div>
   <div class="project-tasks">
-    <div class="project-stage">Этап: Нулевой цикл</div>
+    <div class="project-stage">Этап: Нулевой цикл =></div>
     <div class="projects-tasks-bar">
       @if(chartOptions) {
         <apx-chart
           [series]="chartOptions.series"
           [chart]="chartOptions.chart"
-          [fill]="chartOptions.fill"
           [legend]="chartOptions.legend"
           [plotOptions]="chartOptions.plotOptions"
           [xaxis]="chartOptions.xaxis">
@@ -31,4 +30,7 @@
       }
     </div>
   </div>
+  @if(showTaskModalInfo) {
+    <app-task-modal-info [task]="selectedProjectTask"></app-task-modal-info>
+  }
 </div>
