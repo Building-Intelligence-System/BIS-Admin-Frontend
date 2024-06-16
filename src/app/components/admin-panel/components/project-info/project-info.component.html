@@ -17,13 +17,13 @@
     <div class="project-date">
       <span class="project-date-title">Срок сдачи</span>
       <span class="project-date-end">планируемый</span>
-      <span class="project-date-end-value">{{ DateUtils.convertIsoDate(project?.end ?? '') }}</span>
+      <span class="project-date-end-value">{{ DateUtils.convertIsoDate(project?.expectedEndDate ?? '') }}</span>
       <span class="project-date-expected">фактический</span>
-      <span class="project-date-expected-value">{{ DateUtils.convertIsoDate(project?.end ?? '') }}</span>
+      <span class="project-date-expected-value">{{ DateUtils.convertIsoDate(project?.actualEndDate ?? '') }}</span>
     </div>
   </div>
   <div class="project-tasks">
-    <div class="project-stage">Этап: {{projectStages![currentStage].name}}<span class="next-stage" (click)="handleProjectStage()">  =></span></div>
+    <div class="project-stage">Этап: {{projectStages![currentStage].name}}<span class="next-stage" (click)="handleProjectPreviousStage()">  <=</span><span class="next-stage" (click)="handleProjectNextStage()">  =></span></div>
     <div class="projects-tasks-bar">
       @if (chartOptions) {
         <apx-chart
