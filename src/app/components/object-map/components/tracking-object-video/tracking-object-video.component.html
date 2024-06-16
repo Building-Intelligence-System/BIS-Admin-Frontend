@@ -2,7 +2,7 @@
   <div class="tracking-object-video-container">
     <div class="tracking-object-video-close" (click)="handleTrackingObjectVideoClose($event)">&#x2715;</div>
     <video style="{'border-style': 'none','width': '100%'; 'height': '120px','border-radius': '20px', 'overflow': 'hidden'}"
-      src="assets/videos/видеорегистратор.mp4" autoplay>
+      src="assets/videos/видеорегистратор.mp4" autoplay loop [muted]="'muted'">
     </video>
   </div>
 </div>
