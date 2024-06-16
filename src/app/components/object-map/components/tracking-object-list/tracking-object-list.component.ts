@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TrackingObject, TrackingObjectType} from "../../../../core/entities/tracking-object/tracking-object.model";
 
 @Component({
@@ -6,7 +6,8 @@ import {TrackingObject, TrackingObjectType} from "../../../../core/entities/trac
   standalone: true,
   imports: [],
   templateUrl: './tracking-object-list.component.html',
-  styleUrl: './tracking-object-list.component.scss'
+  styleUrl: './tracking-object-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrackingObjectListComponent implements OnInit{
   protected readonly TrackingObjectUrl = TrackingObjectUrl;

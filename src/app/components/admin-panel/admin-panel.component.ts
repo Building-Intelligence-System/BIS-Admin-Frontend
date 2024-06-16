@@ -41,6 +41,7 @@ export class AdminPanelComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const projectsPromise = firstValueFrom(this.httpClient.get<Project[]>('assets/mocks/projects-mock.json'));
     const projectsTaskInfo = firstValueFrom(this.httpClient.get<ProjectTasksInfo[]>('assets/mocks/projects-tasks-info-mock.json'));
+    const projectsReal = firstValueFrom(this.httpClient.get<Project[]>(''));
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
 
     this.changeDetection.markForCheck();
