@@ -6,7 +6,7 @@
       <input class="task-modal-input" [value]="task?.name" [disabled]="isDisabled">
     </label>
     <label class="task-modal-label">Ответственный:
-      <input class="task-modal-input" [value]="task?.responsible" [disabled]="isDisabled">
+      <input class="task-modal-input" [value]="task?.head?.firstName + ' ' + task?.head?.surname" [disabled]="isDisabled">
     </label>
     <label class="task-modal-label">Начало работы над заданием:
       <input class="task-modal-input" [value]="DateUtils.convertIsoDate(task?.startDate ?? '')" [disabled]="isDisabled">
