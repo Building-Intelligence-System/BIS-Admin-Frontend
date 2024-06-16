@@ -24,8 +24,15 @@
   height: 500px;
   border-radius: 10px 0 0 10px;
   z-index: 2002;
-  overflow-y: auto;
   background-color: #121E32;
+
+  &.open {
+    overflow-y: auto;
+  }
+
+  &.close {
+    overflow-y: clip;
+  }
 
   @media (max-width: $tablet) {
     width: 200px;

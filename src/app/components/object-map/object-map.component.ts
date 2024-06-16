@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  NgZone,
+  NgZone, OnDestroy,
   OnInit,
   ViewChild
 } from '@angular/core';
@@ -25,6 +25,7 @@ import {MapService} from "../../features/services/map.service";
 import {TrackingObjectVideoComponent} from "./components/tracking-object-video/tracking-object-video.component";
 import {CCTV} from "../../core/entities/cctv/cctv.model";
 import {CctvComponent} from "./components/cctv/cctv.component";
+import {LayerService} from "../../features/services/layer.service";
 
 @Component({
   selector: 'app-object-map',
@@ -42,7 +43,7 @@ import {CctvComponent} from "./components/cctv/cctv.component";
   styleUrl: './object-map.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ObjectMapComponent implements OnInit, AfterViewInit {
+export class ObjectMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private defaultZoom: number = 15;
   private defaultLatitude: number = 45.0984;
@@ -66,7 +67,8 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
                      private httpClient: HttpClient,
                      private changeDetection: ChangeDetectorRef,
                      private mapService: MapService,
-                     private mapFacadeService: MapFacadeService) {
+                     private mapFacadeService: MapFacadeService,
+                     private layerService: LayerService) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -106,6 +108,7 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnDestroy(): void {
+    this.layerService.removeObjectLayer();
     this.mapFacadeService.destroy();
   }
 
