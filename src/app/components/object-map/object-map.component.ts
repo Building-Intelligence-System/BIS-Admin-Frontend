@@ -5,10 +5,11 @@ import {
   Component,
   ElementRef,
   NgZone,
+  OnDestroy,
   OnInit,
   ViewChild
 } from '@angular/core';
-import {LatLng, Map as map, Marker} from 'leaflet';
+import {LatLng, Map as map} from 'leaflet';
 import {MapFacadeService} from "../../features/services/map-facade.service";
 import {MapGeolocationComponent} from "./components/map-control/components/map-geolocation/map-geolocation.component";
 import {MapZoomComponent} from "./components/map-control/components/map-zoom/map-zoom.component";
@@ -19,12 +20,13 @@ import {TrackingObject} from "../../core/entities/tracking-object/tracking-objec
 import {TrackingObjectListComponent} from "./components/tracking-object-list/tracking-object-list.component";
 import {MarkerIconType} from "../../features/model/marker-icon-type";
 import {ColorType} from "../../features/model/color-type";
-import {MapMarker} from "../../features/model/map-marker.model";
 import {TrackingObjectInfoComponent} from "./components/tracking-object-info/tracking-object-info.component";
 import {MapService} from "../../features/services/map.service";
 import {TrackingObjectVideoComponent} from "./components/tracking-object-video/tracking-object-video.component";
 import {CCTV} from "../../core/entities/cctv/cctv.model";
 import {CctvComponent} from "./components/cctv/cctv.component";
+import {LayerService} from "../../features/services/layer.service";
+import {MapLayerType} from "../../features/model/map-layer-type";
 
 @Component({
   selector: 'app-object-map',
@@ -42,7 +44,7 @@ import {CctvComponent} from "./components/cctv/cctv.component";
   styleUrl: './object-map.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ObjectMapComponent implements OnInit, AfterViewInit {
+export class ObjectMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private defaultZoom: number = 15;
   private defaultLatitude: number = 45.0984;
@@ -66,7 +68,8 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
                      private httpClient: HttpClient,
                      private changeDetection: ChangeDetectorRef,
                      private mapService: MapService,
-                     private mapFacadeService: MapFacadeService) {
+                     private mapFacadeService: MapFacadeService,
+                     private layerService: LayerService) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -77,6 +80,7 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
 
     this.cctvObjects.forEach((cctvObject) => {
       this.cctvObjectMap.set(cctvObject.id!, cctvObject);
+
       const mapCCTVMarker = this.mapFacadeService.createObjectMarker(cctvObject.lat!, cctvObject.lon!, 0, MarkerIconType.CCTV, ColorType.BLUE, cctvObject.id!, false);
       mapCCTVMarker.OnClick((marker) => {
         this.selectedCCTVObject = this.cctvObjectMap.get(marker.sourceTarget.options.entityId);
@@ -92,6 +96,7 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
         this.selectedTrackingObject = this.trackingObjectMap.get(marker.sourceTarget.options.entityId);
         this.changeDetection.markForCheck();
       })
+
       this.changeDetection.markForCheck();
     })
   }
@@ -106,6 +111,7 @@ export class ObjectMapComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnDestroy(): void {
+    this.layerService.clearObjectLayer();
     this.mapFacadeService.destroy();
   }
 

@@ -75,6 +75,10 @@ export class LayerService {
     (<FeatureGroup>this.layers[layerType]).removeLayer(marker);
   }
 
+  public clearObjectLayer() {
+    (<L.MarkerClusterGroup>this.layers.OBJECT_MARKERS).clearLayers();
+  }
+
   public fitLayerBounds(layerType: MapLayerType): void {
     this.mapService.fitBounds((<FeatureGroup>this.layers[layerType]).getBounds());
   }
