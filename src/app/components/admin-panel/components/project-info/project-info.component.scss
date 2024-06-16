@@ -158,6 +158,11 @@
     background-color: #121E32;
     padding: 20px 30px;
 
+    @media (max-width: $mobile) {
+      width: 300px;
+      padding: 10px;
+    }
+
     .add-task {
       height: 100%;
       display: flex;
@@ -183,6 +188,11 @@
         'start-date expected-end-date'
         'head person'
         'comment comment';
+
+          @media (max-width: $mobile) {
+            display: flex;
+            flex-direction: column;
+          }
 
           input {
             border: none;

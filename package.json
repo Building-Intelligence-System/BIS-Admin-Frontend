@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^18.0.3",
     "@angular/platform-browser-dynamic": "^18.0.3",
     "@angular/router": "^18.0.3",
+    "@angular/service-worker": "^18.0.3",
     "@asymmetrik/ngx-leaflet-markercluster": "^18.0.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",

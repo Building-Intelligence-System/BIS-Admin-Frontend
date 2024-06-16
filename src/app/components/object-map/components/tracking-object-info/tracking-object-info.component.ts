@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {TrackingObject} from "../../../../core/entities/tracking-object/tracking-object.model";
 
 @Component({
@@ -6,7 +6,8 @@ import {TrackingObject} from "../../../../core/entities/tracking-object/tracking
   standalone: true,
   imports: [],
   templateUrl: './tracking-object-info.component.html',
-  styleUrl: './tracking-object-info.component.scss'
+  styleUrl: './tracking-object-info.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrackingObjectInfoComponent {
   @Input({required: true}) trackingObject: TrackingObject | undefined;

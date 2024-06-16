@@ -86,14 +86,12 @@ export class ProjectInfoComponent implements OnInit {
       const projectTasksPromise = firstValueFrom(this.httpClient.get<Task[]>(`assets/mocks/project-1-tasks-mock.json`));
       const projectStagesPromise = firstValueFrom(this.httpClient.get<Stage[]>(`assets/mocks/project-stages-mock.json`));
       [this.project, this.projectTaskInfo, this.projectTasks, this.projectStages] = await Promise.all([projectPromise, projectTaskInfoPromise, projectTasksPromise, projectStagesPromise]);
-      console.log(this.projectStages);
       this.createChartOptions(this.projectTasks);
       this.changeDetection.markForCheck();
     });
   }
 
   protected onSubmit() {
-    console.log(this.addTaskFormGroup.value);
     this.addTaskFormGroup.reset();
   }
 

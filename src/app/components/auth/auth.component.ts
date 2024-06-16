@@ -15,8 +15,8 @@ import {Router} from "@angular/router";
 })
 export class AuthComponent {
   protected loginForm = new FormGroup({
-    login: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(1)])
+    login: new FormControl('login', [Validators.required, Validators.minLength(1)]),
+    password: new FormControl('password', [Validators.required, Validators.minLength(1)])
     }
   )
 
@@ -25,7 +25,6 @@ export class AuthComponent {
 
   protected handleSubmit() {
     if(!this.loginForm.controls.login.value || !this.loginForm.controls.password.value) return;
-    console.log('auth submit')
     this.authService.authByPassword(this.loginForm.controls.login.value, this.loginForm.controls.password.value);
     this.router.navigate(['']);
   }

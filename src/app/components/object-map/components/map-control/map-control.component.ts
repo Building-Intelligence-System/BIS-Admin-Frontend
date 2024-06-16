@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {MapGeolocationComponent} from "./components/map-geolocation/map-geolocation.component";
 import {MapZoomComponent} from "./components/map-zoom/map-zoom.component";
 import {MapTileSelectorComponent} from "./components/map-tile-selector/map-tile-selector.component";
@@ -14,7 +14,8 @@ import {MAX_ZOOM, MIN_ZOOM} from "../../../../features/services/layer.service";
     MapZoomComponent
   ],
   templateUrl: './map-control.component.html',
-  styleUrl: './map-control.component.scss'
+  styleUrl: './map-control.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapControlComponent implements AfterViewInit {
 

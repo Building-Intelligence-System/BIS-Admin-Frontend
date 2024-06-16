@@ -48,7 +48,6 @@ export class AssetService {
           this.markerIcons.set(types[i], svgList[i]);
         }
       });
-    console.log(this.markerIcons);
   }
 
 }

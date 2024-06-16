@@ -4,7 +4,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12",
+    "imei": "862059067001936",
     "position": {
       "lat": 45.039190,
       "lon": 38.954079
@@ -15,7 +15,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "123",
+    "imei": "862059067001937",
     "position": {
       "lat": 45.041017,
       "lon": 38.960388
@@ -26,7 +26,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "1234",
+    "imei": "862059067001938",
     "position": {
       "lat": 45.084539,
       "lon": 39.017168
@@ -37,7 +37,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345",
+    "imei": "862059067001939",
     "position": {
       "lat": 45.017065,
       "lon": 39.074468
@@ -48,7 +48,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "123451",
+    "imei": "862059067001940",
     "position": {
       "lat": 44.845958,
       "lon": 37.731615
@@ -59,7 +59,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "1234512",
+    "imei": "862059067001941",
     "position": {
       "lat": 44.597376,
       "lon": 39.023251
@@ -70,7 +70,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345123",
+    "imei": "862059067001942",
     "position": {
       "lat": 44.959062,
       "lon": 41.985744
@@ -81,7 +81,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "123451234",
+    "imei": "862059067001943",
     "position": {
       "lat": 43.581596,
       "lon": 39.751626
@@ -92,7 +92,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "1234512345",
+    "imei": "862059067001944",
     "position": {
       "lat": 54,
       "lon": 40
@@ -103,7 +103,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345123456",
+    "imei": "862059067001945",
     "position": {
       "lat": 44.305928,
       "lon": 42.946023
@@ -114,7 +114,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345123457",
+    "imei": "862059067001946",
     "position": {
       "lat": 54,
       "lon": 40
@@ -125,7 +125,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345123458",
+    "imei": "862059067001947",
     "position": {
       "lat": 45.723543,
       "lon": 47.185622
@@ -136,7 +136,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "12345123459",
+    "imei": "862059067001948",
     "position": {
       "lat": 46.132479,
       "lon": 39.843081
@@ -147,7 +147,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "123451234510",
+    "imei": "862059067001949",
     "position": {
       "lat": 46.304236,
       "lon": 43.122401
@@ -158,7 +158,7 @@
     "type": "CAR",
     "status": "WORKING",
     "model": "model",
-    "imei": "123451234511",
+    "imei": "862059067001950",
     "position": {
       "lat": 44.553169,
       "lon": 38.954660
