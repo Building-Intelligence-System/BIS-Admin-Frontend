@@ -8,4 +8,8 @@ export class Task {
   public expectedEndDate?: string;
   public responsible?: string;
   public taskState?: TaskState;
+  head?: {
+    firstName?: string;
+    surname?: string
+  }
 }

@@ -100,7 +100,7 @@ export class ProjectInfoComponent implements OnInit {
   protected createChartOptions(tasks: Task[]) {
     this.chartOptions = {
       series: tasks.map(task => ({
-        name: 'Ответственный ',
+        name: 'Ответственный ' + task.head?.firstName + ' ' + task.head?.surname ?? '',
         data: [
           {
             x: task.name,
