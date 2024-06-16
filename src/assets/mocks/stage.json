@@ -1,0 +1,438 @@
+[
+  {
+    "id": 1,
+    "name": "Подготовительный этап",
+    "startDate": "2019-05-01T00:00:00Z",
+    "expectedEndDate": "2019-08-24T00:00:00Z",
+    "actualEndDate": "2019-07-09T00:00:00Z",
+    "head": {
+      "id": 5,
+      "login": null,
+      "password": null,
+      "firstName": "Илларион",
+      "surname": "Веселов",
+      "fatherName": "Алексеевич",
+      "role": "FOREMAN"
+    },
+    "project": null,
+    "tasks": [
+      {
+        "id": 1,
+        "name": "Изучение грунта",
+        "startDate": "2019-05-01T00:00:00Z",
+        "expectedEndDate": "2019-05-30T00:00:00Z",
+        "actualEndDate": "2019-05-27T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 1,
+          "login": null,
+          "password": null,
+          "firstName": "Вадим",
+          "surname": "Керунов",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 2,
+        "name": "Расчистка территорий",
+        "startDate": "2019-05-27T00:00:00Z",
+        "expectedEndDate": "2019-05-30T00:00:00Z",
+        "actualEndDate": "2019-05-30T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 2,
+          "login": null,
+          "password": null,
+          "firstName": "Вадим",
+          "surname": "Ширяев",
+          "fatherName": "Николаевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 3,
+        "name": "Отвод грунтовых вод",
+        "startDate": "2019-05-30T00:00:00Z",
+        "expectedEndDate": "2019-06-16T00:00:00Z",
+        "actualEndDate": "2019-06-15T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 3,
+          "login": null,
+          "password": null,
+          "firstName": "Вениамин",
+          "surname": "Давыдов",
+          "fatherName": "Игнатьевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 4,
+        "name": "Планирование зон",
+        "startDate": "2019-06-15T00:00:00Z",
+        "expectedEndDate": "2019-07-10T00:00:00Z",
+        "actualEndDate": "2019-07-09T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 4,
+          "login": null,
+          "password": null,
+          "firstName": "Вениамин",
+          "surname": "Немо",
+          "fatherName": "Игнатьевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Проведение инженерно-геологических изысканий",
+    "startDate": "2019-08-24T00:00:00Z",
+    "expectedEndDate": "2021-06-24T00:00:00Z",
+    "actualEndDate": "2021-07-01T00:00:00Z",
+    "head": {
+      "id": 9,
+      "login": null,
+      "password": null,
+      "firstName": "Алексей",
+      "surname": "Морозов",
+      "fatherName": "Евгеньевич",
+      "role": "FOREMAN"
+    },
+    "project": null,
+    "tasks": [
+      {
+        "id": 5,
+        "name": "Изучение архивных материалов",
+        "startDate": "2019-08-24T00:00:00Z",
+        "expectedEndDate": "2024-01-15T00:00:00Z",
+        "actualEndDate": "2020-12-01T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 6,
+          "login": null,
+          "password": null,
+          "firstName": "Илья",
+          "surname": "Игнатов",
+          "fatherName": "Александрович",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 6,
+            "login": null,
+            "password": null,
+            "firstName": "Илья",
+            "surname": "Игнатов",
+            "fatherName": "Александрович",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 6,
+        "name": "Получение образцов пород",
+        "startDate": "2020-12-01T00:00:00Z",
+        "expectedEndDate": "2021-05-30T00:00:00Z",
+        "actualEndDate": "2021-04-15T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 7,
+          "login": null,
+          "password": null,
+          "firstName": "Илларион",
+          "surname": "Козлов",
+          "fatherName": "Максимович",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 7,
+            "login": null,
+            "password": null,
+            "firstName": "Илларион",
+            "surname": "Козлов",
+            "fatherName": "Максимович",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 7,
+        "name": "Лабораторные исследования",
+        "startDate": "2021-04-15T00:00:00Z",
+        "expectedEndDate": "2021-06-24T00:00:00Z",
+        "actualEndDate": "2021-07-01T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 8,
+          "login": null,
+          "password": null,
+          "firstName": "Жанна",
+          "surname": "Мирович",
+          "fatherName": "Андреевна",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 8,
+            "login": null,
+            "password": null,
+            "firstName": "Жанна",
+            "surname": "Мирович",
+            "fatherName": "Андреевна",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Проектирование здания",
+    "startDate": "2021-07-01T00:00:00Z",
+    "expectedEndDate": "2022-07-01T00:00:00Z",
+    "actualEndDate": "2022-08-07T00:00:00Z",
+    "head": {
+      "id": 16,
+      "login": null,
+      "password": null,
+      "firstName": "Алексей",
+      "surname": "Морозов",
+      "fatherName": "Евгеньевич",
+      "role": "FOREMAN"
+    },
+    "project": null,
+    "tasks": [
+      {
+        "id": 8,
+        "name": "Составление задания на проектирование",
+        "startDate": "2021-07-01T00:00:00Z",
+        "expectedEndDate": "2021-09-30T00:00:00Z",
+        "actualEndDate": "2021-10-01T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 10,
+          "login": null,
+          "password": null,
+          "firstName": "Максим",
+          "surname": "Керунов",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 9,
+        "name": "Разработка основных технических решений",
+        "startDate": "2021-10-01T00:00:00Z",
+        "expectedEndDate": "2021-12-27T00:00:00Z",
+        "actualEndDate": "2021-12-27T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 11,
+          "login": null,
+          "password": null,
+          "firstName": "Максим",
+          "surname": "Керунов",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 10,
+        "name": "Разработка проектной документации",
+        "startDate": "2021-12-27T00:00:00Z",
+        "expectedEndDate": "2022-02-25T00:00:00Z",
+        "actualEndDate": "2022-01-27T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 12,
+          "login": null,
+          "password": null,
+          "firstName": "Максим",
+          "surname": "Керунов",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 13,
+        "name": "Согласование и экспертиза рабочей и проектной документации",
+        "startDate": "2022-06-10T00:00:00Z",
+        "expectedEndDate": "2022-07-01T00:00:00Z",
+        "actualEndDate": "2022-08-07T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 15,
+          "login": null,
+          "password": null,
+          "firstName": "Артур",
+          "surname": "Первышов",
+          "fatherName": "Маликович",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Возведение здания",
+    "startDate": "2022-08-07T00:00:00Z",
+    "expectedEndDate": "2026-05-01T00:00:00Z",
+    "actualEndDate": "2026-04-17T00:00:00Z",
+    "head": {
+      "id": 24,
+      "login": null,
+      "password": null,
+      "firstName": "Иван",
+      "surname": "Мегчов",
+      "fatherName": "Петрович",
+      "role": "FOREMAN"
+    },
+    "project": null,
+    "tasks": [
+      {
+        "id": 14,
+        "name": "Рытьё котлована под фундамент",
+        "startDate": "2022-08-07T00:00:00Z",
+        "expectedEndDate": "2022-08-15T00:00:00Z",
+        "actualEndDate": "2022-08-17T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 17,
+          "login": null,
+          "password": null,
+          "firstName": "Вадим",
+          "surname": "Владим",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 17,
+            "login": null,
+            "password": null,
+            "firstName": "Вадим",
+            "surname": "Владим",
+            "fatherName": "Евгеньевич",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 15,
+        "name": "Строительство и гидроизоляция фундамента",
+        "startDate": "2022-08-17T00:00:00Z",
+        "expectedEndDate": "2022-09-28T00:00:00Z",
+        "actualEndDate": "2022-09-18T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 18,
+          "login": null,
+          "password": null,
+          "firstName": "Евгений",
+          "surname": "Морозов",
+          "fatherName": "Евгеньевич",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 18,
+            "login": null,
+            "password": null,
+            "firstName": "Евгений",
+            "surname": "Морозов",
+            "fatherName": "Евгеньевич",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 18,
+        "name": "Внешняя отделка стен дома",
+        "startDate": "2024-04-27T00:00:00Z",
+        "expectedEndDate": "2024-11-30T00:00:00Z",
+        "actualEndDate": "2024-10-15T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 21,
+          "login": null,
+          "password": null,
+          "firstName": "Влад",
+          "surname": "Шипилев",
+          "fatherName": "Ильич",
+          "role": "FOREMAN"
+        },
+        "workers": [
+          {
+            "id": 21,
+            "login": null,
+            "password": null,
+            "firstName": "Влад",
+            "surname": "Шипилев",
+            "fatherName": "Ильич",
+            "role": "FOREMAN"
+          }
+        ],
+        "comments": [],
+        "stage": null
+      },
+      {
+        "id": 21,
+        "name": "Оформление дизайна и ландшафтный дизайн",
+        "startDate": "2026-02-08T00:00:00Z",
+        "expectedEndDate": "2026-05-01T00:00:00Z",
+        "actualEndDate": "2026-04-17T00:00:00Z",
+        "taskState": null,
+        "head": {
+          "id": 24,
+          "login": null,
+          "password": null,
+          "firstName": "Иван",
+          "surname": "Мегчов",
+          "fatherName": "Петрович",
+          "role": "FOREMAN"
+        },
+        "workers": [],
+        "comments": [],
+        "stage": null
+      }
+    ]
+  }
+]

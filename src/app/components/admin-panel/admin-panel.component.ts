@@ -8,6 +8,8 @@ import {ProjectTasksInfo} from "../../core/entities/project-tasks-info/projects-
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
+export const API = 'https://api.byys.online'
+
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
@@ -41,7 +43,8 @@ export class AdminPanelComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const projectsPromise = firstValueFrom(this.httpClient.get<Project[]>('assets/mocks/projects-mock.json'));
     const projectsTaskInfo = firstValueFrom(this.httpClient.get<ProjectTasksInfo[]>('assets/mocks/projects-tasks-info-mock.json'));
-    const projectsReal = firstValueFrom(this.httpClient.get<Project[]>(''));
+    const projectsReal = await firstValueFrom(this.httpClient.get<Project[]>(API + '/project/all'));
+    console.log(projectsReal);
     [this.projects, this.projectsTaskInfo] = await Promise.all([projectsPromise, projectsTaskInfo]);
 
     this.changeDetection.markForCheck();

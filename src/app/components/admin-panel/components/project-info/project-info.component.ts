@@ -51,8 +51,8 @@ export class ProjectInfoComponent implements OnInit {
 
   protected project: Project | undefined;
   protected projectTaskInfo: ProjectTasksInfo | undefined;
-  protected projectTasks: Task[] | undefined;
-  protected projectStages: Stage[] | undefined;
+  protected projectTasks: Task[] = [];
+  protected projectStages: Stage[] = [];
 
   protected currentStage = 0;
 
@@ -71,22 +71,24 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.addTaskFormGroup = new FormGroup({
-    name: new FormControl(),
-    startDate: new FormControl(),
-    expectedEndDate: new FormControl(),
-    head: new FormControl(),
-    person: new FormControl(),
-    comment: new FormControl()
-  });
+    this.addTaskFormGroup = new FormGroup({
+      name: new FormControl(),
+      startDate: new FormControl(),
+      expectedEndDate: new FormControl(),
+      head: new FormControl(),
+      person: new FormControl(),
+      comment: new FormControl()
+    });
 
     this.activatedRoute.params.subscribe(async (next: Params) => {
       const projectPromise = firstValueFrom(this.httpClient.get<Project>(`assets/mocks/project-${next['projectId']}-mock.json`));
       const projectTaskInfoPromise = firstValueFrom(this.httpClient.get<ProjectTasksInfo>(`assets/mocks/project-${next['projectId']}-task-info-mock.json`));
       const projectTasksPromise = firstValueFrom(this.httpClient.get<Task[]>(`assets/mocks/project-1-tasks-mock.json`));
-      const projectStagesPromise = firstValueFrom(this.httpClient.get<Stage[]>(`assets/mocks/project-stages-mock.json`));
+      const projectStagesPromise = firstValueFrom(this.httpClient.get<Stage[]>(`assets/mocks/stage.json`));
+
       [this.project, this.projectTaskInfo, this.projectTasks, this.projectStages] = await Promise.all([projectPromise, projectTaskInfoPromise, projectTasksPromise, projectStagesPromise]);
-      this.createChartOptions(this.projectTasks);
+      console.log('stage', this.projectStages);
+      this.createChartOptions(this.projectStages![this.currentStage].tasks!);
       this.changeDetection.markForCheck();
     });
   }
@@ -114,8 +116,11 @@ export class ProjectInfoComponent implements OnInit {
       chart: {
         height: 350,
         type: "rangeBar",
-        events: { dataPointSelection: (e, chart, opts) => {
-            this.handleTaskClick(opts['seriesIndex']); } },
+        events: {
+          dataPointSelection: (e, chart, opts) => {
+            this.handleTaskClick(opts['seriesIndex']);
+          }
+        },
       },
       plotOptions: {
         bar: {
@@ -155,8 +160,17 @@ export class ProjectInfoComponent implements OnInit {
     this.changeDetection.markForCheck()
   }
 
-  protected handleProjectStage() {
+  protected handleProjectPreviousStage() {
+    this.currentStage -= 1;
+    if(!this.projectStages![this.currentStage]) return;
+    this.createChartOptions(this.projectStages![this.currentStage].tasks!);
+    this.changeDetection.markForCheck();
+  }
+
+  protected handleProjectNextStage() {
     this.currentStage += 1;
+    if(!this.projectStages![this.currentStage]) return;
+    this.createChartOptions(this.projectStages![this.currentStage].tasks!);
     this.changeDetection.markForCheck();
   }
 
