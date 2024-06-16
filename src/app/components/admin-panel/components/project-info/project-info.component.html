@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="project-tasks">
-    <div class="project-stage">Этап: {{projectStages![currentStage].name}}<span class="next-stage" (click)="handleProjectPreviousStage()">  <=</span><span class="next-stage" (click)="handleProjectNextStage()">  =></span></div>
+    <div class="project-stage">Этап{{ ' ' + currentStage + ' :' + projectStages![currentStage].name}}<span class="next-stage" (click)="handleProjectPreviousStage()">  <=</span><span class="next-stage" (click)="handleProjectNextStage()">  =></span></div>
     <div class="projects-tasks-bar">
       @if (chartOptions) {
         <apx-chart
