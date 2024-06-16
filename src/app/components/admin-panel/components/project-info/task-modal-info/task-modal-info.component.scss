@@ -10,7 +10,7 @@
   width: 100dvw;
   height: 100dvh;
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+
 }
 
 .task-modal-info-close {
@@ -24,10 +24,16 @@
 .task-modal-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   background-color: #121E32;
+  color: white;
   padding: 20px;
   border-radius: 10px;
+  box-sizing: border-box;
+  @include sizes(30%, 90%);
+  min-height: max-content;
+  min-width: 250px;
+  overflow-y: auto;
 }
 
 .task-modal-title {
@@ -65,7 +71,7 @@ input {
   @include fontSize(20px, 20px);
   background-color: white;
   border-radius: 10px;
-  height: 40px;
+  min-height: 40px;
   outline: none;
   border: none;
   color: #121E32;
