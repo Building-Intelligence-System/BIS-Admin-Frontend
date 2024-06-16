@@ -156,7 +156,7 @@ export class ProjectInfoComponent implements OnInit {
   protected handleTaskClick(taskIndex: number) {
     if (!this.projectTasks) return;
     this.showTaskModalInfo = true;
-    this.selectedProjectTask = this.projectTasks[taskIndex];
+    this.selectedProjectTask = this.projectStages![this.currentStage].tasks![taskIndex];
     this.changeDetection.markForCheck()
   }
 
