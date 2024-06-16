@@ -3,8 +3,8 @@
   "name": "Смородина",
   "type": "RESIDENTIAL",
   "address": "Краснодар",
-  "start": "2010-04-23T18:25:43.511Z",
-  "end": "2010-04-23T18:25:43.511Z",
-  "expectedEndDate": "2012-04-23T18:25:43.511Z",
+  "start": "2019-05-01T18:25:43.511Z",
+  "end": "2026-04-17T18:25:43.511Z",
+  "expectedEndDate": "2026-05-01T18:25:43.511Z",
   "imageReference": "assets/builds/build-1.jpg"
 }

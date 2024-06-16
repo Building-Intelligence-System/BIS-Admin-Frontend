@@ -10,7 +10,7 @@ export class Project {
   longitude?: number;
   public name?: number;
   public start?: string;
-  public actualEndDate?: string;
+  public end?: string;
   public expectedEndDate?: string;
   imageReference?: string;
   stages?: Stage[];
