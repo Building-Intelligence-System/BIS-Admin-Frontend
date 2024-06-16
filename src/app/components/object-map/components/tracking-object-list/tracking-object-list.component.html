@@ -1,4 +1,4 @@
-<div class="tracking-objects-list">
+<div class="tracking-objects-list" [ngClass]="openTrackingObjectCameraList ? 'open' : 'close'">
   <div class="close-modal" (click)="openTrackingObjectCameraList = !openTrackingObjectCameraList">
     @if (openTrackingObjectCameraList) {
       <span>&#8594;</span>

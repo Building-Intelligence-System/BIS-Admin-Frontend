@@ -1,10 +1,13 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TrackingObject, TrackingObjectType} from "../../../../core/entities/tracking-object/tracking-object.model";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-tracking-object-list',
   standalone: true,
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './tracking-object-list.component.html',
   styleUrl: './tracking-object-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
