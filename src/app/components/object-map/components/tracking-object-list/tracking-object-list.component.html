@@ -1,12 +1,21 @@
 <div class="tracking-objects-list">
-  <ul>
-    @for (trackingObject of trackingObjects; track $index) {
-      <li (click)="handleTrackingObjectClick(trackingObject)">
-        <img class="list-tracking-object-img" [src]="TrackingObjectUrl[trackingObject.type ?? 'CAR']">
-        {{trackingObject.model}}
-        {{trackingObject.status}}
-        {{trackingObject.imei}}
-      </li>
+  <div class="close-modal" (click)="openTrackingObjectCameraList = !openTrackingObjectCameraList">
+    @if (openTrackingObjectCameraList) {
+      <span>&#8594;</span>
+    } @else {
+      <span>&#8592;</span>
     }
-  </ul>
+  </div>
+  @if(openTrackingObjectCameraList) {
+    <ul>
+      @for (trackingObject of trackingObjects; track $index) {
+        <li class="track-list-item" (click)="handleTrackingObjectClick(trackingObject)">
+          <img class="list-tracking-object-img" [src]="TrackingObjectUrl[trackingObject.type ?? 'CAR']">
+          {{trackingObject.model}}
+          {{trackingObject.status}}
+          {{trackingObject.imei}}
+        </li>
+      }
+    </ul>
+  }
 </div>

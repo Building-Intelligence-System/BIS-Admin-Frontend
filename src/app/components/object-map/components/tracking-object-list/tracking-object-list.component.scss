@@ -16,10 +16,15 @@
 }
 
 .tracking-objects-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 300px;
+  width: fit-content;
   height: 500px;
+  border-radius: 10px 0 0 10px;
   z-index: 2002;
+  overflow-y: auto;
   background-color: #121E32;
 
   @media (max-width: $tablet) {
@@ -27,18 +32,40 @@
     height: 300px;
   }
 
+  .close-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: white;
+    height: 100%;
+    width: fit-content;
+
+    span {
+      font-size: 24px;
+    }
+
+    &:hover {
+      color: black;
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+
   ul {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: fit-content;
+    height: fit-content;
     min-height: max-content;
     overflow-y: auto;
+    padding: 20px 10px;
 
     li {
       @include flexContent(center, flex-start);
       min-height: 50px;
-      padding: 5px;
+      padding: 10px;
+      border-radius: 5px;
       color: white;
       gap: 5px;
       cursor: pointer;

@@ -10,6 +10,7 @@ import {TrackingObject, TrackingObjectType} from "../../../../core/entities/trac
 })
 export class TrackingObjectListComponent implements OnInit{
   protected readonly TrackingObjectUrl = TrackingObjectUrl;
+  protected openTrackingObjectCameraList: boolean = false;
 
   @Input({required: true}) public trackingObjects: TrackingObject[] = [];
   @Output() public trackingObjectClick: EventEmitter<TrackingObject> = new EventEmitter<TrackingObject>();

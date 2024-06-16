@@ -1,8 +1,10 @@
 <div class="tracking-object-info">
-  <h2 class="tracking-object-info-title">{{ 'Модель :' + trackingObject?.model }}</h2>
-  <span class="tracking-object-info-property">{{ 'Тип :' + trackingObject?.type }}</span>
-  <span class="tracking-object-info-property">{{ 'Статус :' + trackingObject?.status }}</span>
-  <span class="tracking-object-info-property">{{ 'IMEI :' + trackingObject?.imei }}</span>
-  <span class="back-to-tracking-object-list" (click)="handleBackToTrackingListEvent($event)"><=</span>
-  <span class="tracking-object-video">Видеорегистратор: <span class="video" (click)="handleTrackingObjectVideo($event)">🎦</span></span>
+  <div class="title">
+    <span class="back-to-tracking-object-list" (click)="handleBackToTrackingListEvent($event)"><span>&#8592;</span></span>
+    <h2 class="tracking-object-info-title">{{ 'Модель:' + trackingObject?.model }}</h2>
+  </div>
+  <span class="tracking-object-info-property">{{ 'Тип:' + trackingObject?.type }}</span>
+  <span class="tracking-object-info-property">{{ 'Статус:' + trackingObject?.status }}</span>
+  <span class="tracking-object-info-property">{{ 'IMEI:' + trackingObject?.imei }}</span>
+  <span class="tracking-object-video">Видеорегистратор: <span class="video" (click)="handleTrackingObjectVideo($event); handleBackToTrackingListEvent($event)">🎦</span></span>
 </div>
